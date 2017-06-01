@@ -1,12 +1,12 @@
 import ReactDOM from 'react-dom';
 import React    from 'react';
 
-import { default as Component } from '../index';
+import { Modal } from '../index';
 
 
-document.body.addEventListener('o.InitComponent', e => {
+document.body.addEventListener('o.InitModal', e => {
   ReactDOM.render(
-    React.createElement(Component, e.detail.props, e.detail.props.children)
+    React.createElement(Modal, e.detail.props, e.detail.props.children)
     , document.getElementById(e.detail.elementId)
   );
 });
