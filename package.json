@@ -2,7 +2,7 @@
   "name": "@pearson-components/Modal",
   "version": "0.0.2",
   "description": "Modal",
-  "author": "pearson design accelerator",
+  "author": "pearson design accelerator pearson-design-accelerator@pearson.com",
   "license": "MIT",
   "homepage": "https://pearson-higher-ed.github.io/modal/",
   "main": "./build/dist.modal.js",
@@ -91,7 +91,9 @@
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
   },
-  "keywords": [],
+  "keywords": [
+    "pearson-components"
+  ],
   "dependencies": {
     "pearson-compounds": "^0.4.3",
     "react-modal": "^1.7.7"

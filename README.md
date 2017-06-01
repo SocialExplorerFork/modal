@@ -89,7 +89,7 @@ QA may use the event harness to instantiate a component for testing using this f
 ```
 document.body.dispatchEvent(new CustomEvent('o.InitModal', {
     detail: {
-      elementId: 'app',
+      elementId: 'app', 
       props: {
         text: {
           headerTitle: 'Terms n Conditions (basic title)',
