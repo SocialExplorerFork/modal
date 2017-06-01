@@ -12,13 +12,19 @@ Install and save in your package.json:
 
 Import a single modal:
 
-    import { Modal } from 'pearson-components';
+    import { Modal } from '@pearson-components/modal';
+
+    <Modal isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!")} ><p>{text.bodyText}</p></Modal>
 
 
 Import Multiple Modals:
 
-    import { Modal as ModalOne } from '@pearson-components/modal';
-    import { Modal as ModalTwo } from '@pearson-components/modal';
+    import { Modal as ModalWithFooter } from '@pearson-components/modal';
+    import { Modal as ModalWithOutFooter } from '@pearson-components/modal';
+
+    <ModalWithFooter isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>
+
+    <ModalWithOutFooter isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>
 
 
 ### External Dependencies
@@ -89,7 +95,7 @@ QA may use the event harness to instantiate a component for testing using this f
 ```
 document.body.dispatchEvent(new CustomEvent('o.InitModal', {
     detail: {
-      elementId: 'app', 
+      elementId: 'app',
       props: {
         text: {
           headerTitle: 'Terms n Conditions (basic title)',
