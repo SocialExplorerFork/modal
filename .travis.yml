@@ -5,7 +5,7 @@ node_js:
 - 6
 script:
 - npm run ci
-# - sonar-scanner
+# - sonar-scannergit 
 - chmod 777 ./test/shell_scripts/run_tests.sh
 deploy:
   provider: npm
