@@ -1,0 +1,10 @@
+.babelrc
+.eslintrc
+.idea
+.travis.yml
+solano.yml
+webpack.config.js
+main.js
+
+/test
+/demo

@@ -1,0 +1,16 @@
+.DS_Store
+.idea
+*.iml
+*.swo
+*.swp
+npm-debug.log
+yarn.lock
+
+/node_modules
+/coverage
+
+#====-Build Section-=========
+# comment out for gh_pages...
+# or run: npm run deploy
+/build
+#============================
