@@ -5,6 +5,13 @@ This module provides an accessible text modal
 
 ## Usage
 
+Props:
+  text:Object === 'headerTitle', 'bodyText', 'closeButtonSRText', 'modalSaveButtonText', 'modalCancelButtonText'
+  footerVisible:Boolean === true/false (close button and footer are mutually exclusive.)
+  isShown:Boolean === true/false (opens the modal when true)
+  successBtnHandler:Function === () => console.log("hi there")
+  cancelBtnHandler:Function === () => console.log("hi there") function to handle closing modal should set of modalIsOpen to false
+
 
 Install and save in your package.json:
 
@@ -19,13 +26,40 @@ Import a single modal:
 
 Import Multiple Modals:
 
+    import React, { Component } from 'react';
     import { Modal as ModalWithFooter } from '@pearson-components/modal';
     import { Modal as ModalWithOutFooter } from '@pearson-components/modal';
 
-    <ModalWithFooter isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>
+    class Example extends Component {
 
-    <ModalWithOutFooter isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>
+      constructor(props){
+        super(props);
+        this.state = {
+          firstModalIsShown:false,
+          secondModalIsShown:false,
+          text:{
+            headerTitle:"example",
+            bodyText:"example",
+            closeButtonSRText:"example",
+            modalSaveButtonText:"example",
+            modalCancelButtonText:"example"
+          }
+        }
+      }
 
+    render(){
+
+      const { firstModalIsShown, secondModalIsShown, text } = this.state;
+      
+      return(
+        <div>
+          <ModalWithFooter isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>
+
+          <ModalWithOutFooter isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>
+        </div>
+      )
+    }
+  }
 
 ### External Dependencies
 
