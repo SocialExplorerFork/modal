@@ -54,6 +54,7 @@ class ModalPage extends Component {
 
             <ModalWithFooter id="modalWithFooter" isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} >
               <p>{text.bodyText}</p>
+              <button onClick={() => this.setState({firstModalIsShown:false})}>Close Modal</button>
             </ModalWithFooter>
 
             <ModalWithOutFooter id="modalWithOutFooter" isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} >
