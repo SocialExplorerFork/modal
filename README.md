@@ -50,7 +50,7 @@ Import Multiple Modals:
     render(){
 
       const { firstModalIsShown, secondModalIsShown, text } = this.state;
-      
+
       return(
         <div>
           <ModalWithFooter isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>
@@ -58,8 +58,8 @@ Import Multiple Modals:
           <ModalWithOutFooter isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>
         </div>
       )
+     }
     }
-  }
 
 ### External Dependencies
 
