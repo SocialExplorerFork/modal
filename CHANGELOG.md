@@ -1,3 +1,13 @@
+<a name="0.0.7"></a>
+## [0.0.7](https://github.com/Pearson-Higher-Ed/modal/compare/v0.0.6...v0.0.7) (2017-06-02)
+
+
+### Bug Fixes
+
+* check props for isShown ([72825a5](https://github.com/Pearson-Higher-Ed/modal/commit/72825a5))
+
+
+
 <a name="0.0.6"></a>
 ## [0.0.6](https://github.com/Pearson-Higher-Ed/modal/compare/v0.0.5...v0.0.6) (2017-06-02)
 
