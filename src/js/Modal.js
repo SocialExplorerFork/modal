@@ -32,7 +32,7 @@ class Modal extends Component {
 
   render() {
 
-    const { isShown, footerVisible, text, children } = this.props;
+    const { isShown, footerVisible, text, children, disableSuccessBtn } = this.props;
 
     return (
         <BaseModal
@@ -57,7 +57,7 @@ class Modal extends Component {
             {children}
           </div>
 
-          {this.renderFooter(footerVisible, text)}
+          {this.renderFooter(footerVisible, text, disableSuccessBtn)}
 
         </BaseModal>
     )
@@ -83,6 +83,8 @@ export function _onClose() {
 }
 
 export function _successBtnHandler() {
+  this.removeOverlayStyle();
+  this.removeWrapper();
   this.props.successBtnHandler.call(this);
 }
 
@@ -170,12 +172,12 @@ export function _removeWrapper() {
   document.body.appendChild(excludedElement);
 };
 
-export function _renderFooter(footerVisible, text) {
+export function _renderFooter(footerVisible, text, disableSuccessBtn) {
   if (footerVisible) {
     return(
       <div className="modalFooter" >
         <button onClick={this.cancelBtnHandler} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
-        <button onClick={this.successBtnHandler} className="modalSave pe-btn__primary--btn_large">{text.modalSaveButtonText}</button>
+        <button onClick={this.successBtnHandler} className="modalSave pe-btn__primary--btn_large" disabled={disableSuccessBtn} aria-disabled={disableSuccessBtn}>{text.modalSaveButtonText}</button>
       </div>
     )
   };
