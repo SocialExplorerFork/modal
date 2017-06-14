@@ -177,7 +177,7 @@ export function _renderFooter(footerVisible, text, disableSuccessBtn) {
     return(
       <div className="modalFooter" >
         <button onClick={this.cancelBtnHandler} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
-        <button onClick={this.successBtnHandler} className="modalSave pe-btn__primary--btn_large" disabled={disableSuccessBtn} aria-disabled={disableSuccessBtn}>{text.modalSaveButtonText}</button>
+        <button onClick={this.successBtnHandler} className="modalSave pe-btn__primary--btn_large" disabled={disableSuccessBtn}>{text.modalSaveButtonText}</button>
       </div>
     )
   };
