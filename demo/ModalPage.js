@@ -52,12 +52,12 @@ class ModalPage extends Component {
           <br />
           <div className="elementContainer">
 
-            <ModalWithFooter id="modalWithFooter" isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} >
+            <ModalWithFooter id="modalWithFooter" isShown={firstModalIsShown} disableSuccessBtn={false} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => this.setState({firstModalIsShown:false})} >
               <p>{text.bodyText}</p>
               <button onClick={() => this.setState({firstModalIsShown:false})}>Close Modal</button>
             </ModalWithFooter>
 
-            <ModalWithOutFooter id="modalWithOutFooter" isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} >
+            <ModalWithOutFooter id="modalWithOutFooter" isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => this.setState({secondModalIsShown:false})} >
               <p>{text.bodyText}</p>
             </ModalWithOutFooter>
 
@@ -88,20 +88,25 @@ class ModalPage extends Component {
               <li>text:Object === 'initiatingButtonText', 'headerTitle', 'bodyText', 'closeButtonSRText', 'modalSaveButtonText', 'modalCancelButtonText'</li>
               <li>footerVisible:Boolean === true/false (close button and footer are mutually exclusive.)</li>
               <li>isShown:Boolean === true/false (opens the modal when true)</li>
-              <li>successBtnHandler:Function === () => console.log("hi there")</li>
-              <li>cancelBtnHandler:Function === () => console.log("hi there") function to handle closing modal should set of modalIsOpen to false</li>
+              <li>disableSuccessBtn:Boolean === true/false (disables the success button when footer is shown)</li>
+              <li>successBtnHandler:Function === () => console.log("success")</li>
+              <li>cancelBtnHandler:Function === () => console.log("cancel") function to handle closing modal should set of modalIsOpen to false</li>
             </ul>
+          </div>
+          <div className="code">
+            <h2>Install:</h2>
+            <p>npm install @pearson-components/modal --save</p>
           </div>
           <br />
           <p className="code">{"import { Modal } from '@pearson-components/modal';"}</p>
-          <p className="code">{'<Modal isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></Modal>'}</p>
+          <p className="code">{'<Modal isShown={firstModalIsShown} text={text} footerVisible={true} disableSuccessBtn={false} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></Modal>'}</p>
           <br />
           <p>Modal also accepts children for addtional custom configureation:</p>
           <p className="code">{'<Modal isShown={true} text={text} footerVisible={true} successBtnHandler={() => console.log("Success!!")} ><p>hi there</p></Modal>'}</p>
           <p>Import Multiple Modals:</p>
           <p className="code">{"import { Modal as ModalWithFooter } from '@pearson-components/modal';"}</p>
           <p className="code">{"import { Modal as ModalWithOutFooter } from '@pearson-components/modal';"}</p>
-          <p className="code">{'<ModalWithFooter isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>'}</p>
+          <p className="code">{'<ModalWithFooter isShown={firstModalIsShown} disableSuccessBtn={false} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>'}</p>
           <p className="code">{'<ModalWithOutFooter isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>'}</p>
         </div>
       )
