@@ -5,7 +5,7 @@ import { Button }           from 'pearson-compounds';
 
 import { Modal as ModalWithOutFooter } from '../index';
 import { Modal as ModalWithFooter }    from '../index';
-
+import { Modal as ModalWithoutClose }  from '../index';
 
 class ModalPage extends Component {
 
@@ -19,12 +19,13 @@ class ModalPage extends Component {
 
     this.firstButtonHandler  = _firstButtonHandler.bind(this);
     this.secondButtonHandler = _secondButtonHandler.bind(this);
+    this.thirdButtonHandler = _thirdButtonHandler.bind(this);
 
   }
 
   render() {
 
-    const { firstModalIsShown, secondModalIsShown } = this.state;
+    const { firstModalIsShown, secondModalIsShown, thirdModalIsShown } = this.state;
 
     // ======================Internationalization Example=======================
     // intl prop is injected by the injectIntl() at the bottom of the page...
@@ -36,6 +37,7 @@ class ModalPage extends Component {
     const text =  {
       initiatingButtonText  : intl.formatMessage(messages.initiatingButtonText),
       initiatingButtonText2 : intl.formatMessage(messages.initiatingButtonText2),
+      initiatingButtonText3 : intl.formatMessage(messages.initiatingButtonText3),
       headerTitle           : intl.formatMessage(messages.headerTitle),
       bodyText              : intl.formatMessage(messages.bodyText),
       closeButtonSRText     : intl.formatMessage(messages.closeButtonSRText),
@@ -61,6 +63,9 @@ class ModalPage extends Component {
               <p>{text.bodyText}</p>
             </ModalWithOutFooter>
 
+            <ModalWithoutClose id="modalWithOutClose" isShown={thirdModalIsShown} text={text} footerVisible={false} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => this.setState({thirdModalIsShown:false})} >
+              <p>{text.bodyText}</p>
+            </ModalWithoutClose>
             <Button
               btnType="primary"
               btnSize="xlarge"
@@ -80,6 +85,16 @@ class ModalPage extends Component {
               {text.initiatingButtonText2}
             </Button>
 
+            <br />
+            <br />
+
+            <Button
+              btnType="cta"
+              btnSize="xlarge"
+              onClick={this.thirdButtonHandler}
+              >
+              {text.initiatingButtonText3}
+            </Button>
           </div>
 
           <div className="code">
@@ -91,6 +106,8 @@ class ModalPage extends Component {
               <li>disableSuccessBtn:Boolean === true/false (disables the success button when footer is shown)</li>
               <li>successBtnHandler:Function === () => console.log("success")</li>
               <li>cancelBtnHandler:Function === () => console.log("cancel") function to handle closing modal should set of modalIsOpen to false</li>
+              <li>shouldCloseOnOverlayClick:Boolean === true/false, defaults to True (allow clicking on overlay to close modal)</li>
+              <li>hideCloseButton:Boolean === true/false, defaults to False (hide close button)</li>
             </ul>
           </div>
           <div className="code">
@@ -108,6 +125,7 @@ class ModalPage extends Component {
           <p className="code">{"import { Modal as ModalWithOutFooter } from '@pearson-components/modal';"}</p>
           <p className="code">{'<ModalWithFooter isShown={firstModalIsShown} disableSuccessBtn={false} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>'}</p>
           <p className="code">{'<ModalWithOutFooter isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>'}</p>
+          <p className="code">{'<modalWithOutClose isShown={thirdModalIsShown} text={text} footerVisible={false} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithoutClose>'}</p>
         </div>
       )
     }
@@ -124,6 +142,10 @@ function _firstButtonHandler (){
 
 function _secondButtonHandler (){
   this.setState({secondModalIsShown:true});
+}
+
+function _thirdButtonHandler (){
+  this.setState({thirdModalIsShown:true});
 }
 
 function _cancelBtnHandler (){
