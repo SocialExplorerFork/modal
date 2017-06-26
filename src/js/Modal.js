@@ -40,7 +40,7 @@ class Modal extends Component {
 
     return (
         <BaseModal
-          overlayClassName          = "pe-template__static-medium modalContent"
+          className                 = "pe-template__static-medium modalContent"
           overlayClassName          = "modalOverlay"
           isOpen                    = {isShown}
           onAfterOpen               = {this.afterOpen}
@@ -53,7 +53,7 @@ class Modal extends Component {
 
           <div id="modalHeader" className="modalHeader">
             {!footerVisible && !hideCloseButton && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
-              <Icon name='remove-sm-24'>{text.closeButtonSRText}</Icon>
+              <Icon name="remove-sm-24">{text.closeButtonSRText}</Icon>
             </button>}
             {text.headerTitle && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
           </div>
