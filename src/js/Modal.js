@@ -43,6 +43,7 @@ class Modal extends Component {
           onRequestClose   = {this.onClose}
           ariaHideApp      = {false}
           role             = "dialog"
+          contentLabel     = "Modal"
           aria-labelledby  = "modalHeader"
           aria-modal       = {true}
   	      >
@@ -116,7 +117,6 @@ export function _afterOpen() {
   this.applyWrapper();
 
   // apply Focus to close button on open...
-  // headerCloseButton ? headerCloseButton.focus() : footerCloseButton.focus();
   modalContent.focus();
 
   // apply padding based on clientHeight...
