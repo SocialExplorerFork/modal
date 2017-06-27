@@ -96,7 +96,7 @@
     "pearson-components"
   ],
   "dependencies": {
-    "pearson-compounds": "^0.4.3",
+    "pearson-compounds": "^0.8.1",
     "react-modal": "^1.7.7"
   }
 }
