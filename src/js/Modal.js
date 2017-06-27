@@ -43,22 +43,25 @@ class Modal extends Component {
           onRequestClose   = {this.onClose}
           ariaHideApp      = {false}
           role             = "dialog"
-          contentLabel     = "Modal"
+          aria-labelledby  = "modalHeader"
+          aria-modal       = {true}
   	      >
+          <div role="document">
 
-          <div id="modalHeader" className="modalHeader">
-            {!footerVisible && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
-              <Icon name='remove-sm-24'>{text.closeButtonSRText}</Icon>
-            </button>}
-            {text.headerTitle && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
+            <div id="modalHeader" className="modalHeader">
+              {!footerVisible && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
+                <Icon name='remove-sm-24'>{text.closeButtonSRText}</Icon>
+              </button>}
+              {text.headerTitle && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
+            </div>
+
+            <div className="modalBody" tabIndex={0}>
+              {children}
+            </div>
+
+            {this.renderFooter(footerVisible, text, disableSuccessBtn)}
+
           </div>
-
-          <div className="modalBody" tabIndex={0}>
-            {children}
-          </div>
-
-          {this.renderFooter(footerVisible, text, disableSuccessBtn)}
-
         </BaseModal>
     )
 
@@ -113,7 +116,8 @@ export function _afterOpen() {
   this.applyWrapper();
 
   // apply Focus to close button on open...
-  headerCloseButton ? headerCloseButton.focus() : footerCloseButton.focus();
+  // headerCloseButton ? headerCloseButton.focus() : footerCloseButton.focus();
+  modalContent.focus();
 
   // apply padding based on clientHeight...
   const windowHeight  = window.innerHeight;

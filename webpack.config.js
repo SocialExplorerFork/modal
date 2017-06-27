@@ -32,6 +32,7 @@ module.exports = {
     overlay            : true,
     watchContentBase   : true,
     historyApiFallback : true,
+    disableHostCheck   : true,
     watchOptions       : { poll: true },
     contentBase        : path.join(__dirname, "build")
   },
