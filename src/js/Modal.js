@@ -40,16 +40,20 @@ class Modal extends Component {
 
     return (
         <BaseModal
-          className                 = "pe-template__static-medium modalContent"
-          overlayClassName          = "modalOverlay"
-          isOpen                    = {isShown}
-          onAfterOpen               = {this.afterOpen}
-          onRequestClose            = {this.onClose}
-          ariaHideApp               = {false}
-          role                      = "dialog"
-          contentLabel              = "Modal"
+          className        = "pe-template__static-medium modalContent"
+          overlayClassName = "modalOverlay"
+          isOpen           = {isShown}
+          onAfterOpen      = {this.afterOpen}
+          onRequestClose   = {this.onClose}
+          ariaHideApp      = {false}
+          role             = "dialog"
+          contentLabel     = "Modal"
+          aria-labelledby  = "modalHeader"
+          aria-modal       = {true}
           shouldCloseOnOverlayClick = {shouldCloseOnOverlayClick}
   	      >
+      
+          <div role="document">
 
           <div id="modalHeader" className="modalHeader">
             {!footerVisible && !hideCloseButton && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
@@ -58,12 +62,13 @@ class Modal extends Component {
             {text.headerTitle && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
           </div>
 
-          <div className="modalBody" tabIndex={0}>
-            {children}
+            <div className="modalBody" tabIndex={0}>
+              {children}
+            </div>
+
+            {this.renderFooter(footerVisible, text, disableSuccessBtn)}
+
           </div>
-
-          {this.renderFooter(footerVisible, text, disableSuccessBtn)}
-
         </BaseModal>
     )
 
@@ -119,11 +124,7 @@ export function _afterOpen() {
   this.applyWrapper();
 
   // apply Focus to close button on open...
-  if (headerCloseButton) {
-    headerCloseButton.focus();
-  } else {
-    footerCloseButton && footerCloseButton.focus();
-  }
+  modalContent.focus();
 
   // apply padding based on clientHeight...
   const windowHeight  = window.innerHeight;
