@@ -95,8 +95,12 @@ export function _cancelBtnHandler() {
 }
 
 export function _removeOverlayStyle(){
+  const modalBody    = document.getElementsByClassName('modalBody')[0];
   const modalOverlay = document.getElementsByClassName('modalOverlay')[0];
-  modalOverlay.style = "";
+  
+  modalBody.style.maxHeight        = '';
+  modalOverlay.style.paddingTop    = '';
+  modalOverlay.style.paddingBottom = '';
 }
 
 export function _afterOpen() {
