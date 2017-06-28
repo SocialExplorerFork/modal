@@ -8,6 +8,10 @@ import '../scss/Modal.scss';
 
 class Modal extends Component {
 
+  static defaultProps = {
+    shouldCloseOnOverlayClick: true
+  };
+
   constructor(props) {
     super(props);
 
@@ -32,7 +36,7 @@ class Modal extends Component {
 
   render() {
 
-    const { isShown, footerVisible, text, children, disableSuccessBtn } = this.props;
+    const { isShown, footerVisible, text, children, disableSuccessBtn, shouldCloseOnOverlayClick, hideCloseButton } = this.props;
 
     return (
         <BaseModal
@@ -44,21 +48,27 @@ class Modal extends Component {
           ariaHideApp      = {false}
           role             = "dialog"
           contentLabel     = "Modal"
+          aria-labelledby  = "modalHeader"
+          aria-modal       = {true}
+          shouldCloseOnOverlayClick = {shouldCloseOnOverlayClick}
   	      >
+      
+          <div role="document">
 
           <div id="modalHeader" className="modalHeader">
-            {!footerVisible && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
-              <Icon name='remove-sm-24'>{text.closeButtonSRText}</Icon>
+            {!footerVisible && !hideCloseButton && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
+              <Icon name="remove-sm-24">{text.closeButtonSRText}</Icon>
             </button>}
             {text.headerTitle && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
           </div>
 
-          <div className="modalBody" tabIndex={0}>
-            {children}
+            <div className="modalBody" tabIndex={0}>
+              {children}
+            </div>
+
+            {this.renderFooter(footerVisible, text, disableSuccessBtn)}
+
           </div>
-
-          {this.renderFooter(footerVisible, text, disableSuccessBtn)}
-
         </BaseModal>
     )
 
@@ -71,12 +81,13 @@ export default Modal;
 
 
 Modal.propTypes = {
-  successBtnHandler : PropTypes.func,
-  cancelBtnHandler  : PropTypes.func,
-  text              : PropTypes.object,
-  footerVisible     : PropTypes.bool
+  successBtnHandler         : PropTypes.func,
+  cancelBtnHandler          : PropTypes.func,
+  text                      : PropTypes.object,
+  footerVisible             : PropTypes.bool,
+  shouldCloseOnOverlayClick : PropTypes.bool,
+  hideCloseButton           : PropTypes.bool
 };
-
 
 export function _onClose() {
   this.cancelBtnHandler();
@@ -117,7 +128,7 @@ export function _afterOpen() {
   this.applyWrapper();
 
   // apply Focus to close button on open...
-  headerCloseButton ? headerCloseButton.focus() : footerCloseButton.focus();
+  modalContent.focus();
 
   // apply padding based on clientHeight...
   const windowHeight  = window.innerHeight;

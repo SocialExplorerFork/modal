@@ -1,6 +1,7 @@
 {
   "initiatingButtonText"  : "French Open Modal with Footer",
   "initiatingButtonText2" : "French Open Modal without Footer",
+  "initiatingButtonText3" : "French Open Modal without close button",
   "modalSaveButtonText"   : "le Success button",
   "modalCancelButtonText" : "le Cancel button",
   "headerTitle"           : "French Basic Title",

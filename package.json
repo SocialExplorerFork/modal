@@ -1,6 +1,6 @@
 {
   "name": "@pearson-components/modal",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Modal",
   "author": "pearson design accelerator pearson-design-accelerator@pearson.com",
   "license": "MIT",
@@ -96,7 +96,7 @@
     "pearson-components"
   ],
   "dependencies": {
-    "pearson-compounds": "^0.4.3",
+    "pearson-compounds": "^0.8.1",
     "react-modal": "^1.7.7"
   }
 }
