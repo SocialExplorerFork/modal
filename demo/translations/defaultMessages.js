@@ -14,6 +14,11 @@ export const messages = defineMessages({
     description    : 'text in initiating button',
     defaultMessage : 'Open Modal without Footer'
   },
+  initiatingButtonText3 : {
+    id             : 'initiatingButtonText3',
+    description    : 'text in initiating button',
+    defaultMessage : 'Open Modal without close button'
+  },
   modalSaveButtonText : {
     id             : 'modalSaveButtonText',
     description    : 'text in save button',

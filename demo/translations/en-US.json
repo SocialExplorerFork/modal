@@ -1,6 +1,7 @@
 {
 "initiatingButtonText"  : "Open Modal with Footer",
 "initiatingButtonText2" : "Open Modal without Footer",
+"initiatingButtonText3" : "Open Modal without close button",
 "modalSaveButtonText"   : "Success Button",
 "modalCancelButtonText" : "Cancel Button",
 "headerTitle"           : "Basic Title",

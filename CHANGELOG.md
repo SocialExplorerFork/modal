@@ -1,3 +1,13 @@
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/Pearson-Higher-Ed/modal/compare/v0.4.2...v0.5.0) (2017-06-27)
+
+
+### Features
+
+* static modal for interrupts ([a12be00](https://github.com/Pearson-Higher-Ed/modal/commit/a12be00))
+
+
+
 <a name="0.4.2"></a>
 ## [0.4.2](https://github.com/Pearson-Higher-Ed/modal/compare/v0.0.7...v0.4.2) (2017-06-15)
 
