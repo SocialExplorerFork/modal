@@ -1,5 +1,5 @@
-<a name="0.4.2"></a>
-## [0.4.2](https://github.com/Pearson-Higher-Ed/modal/compare/v0.5.0...v0.4.2) (2017-06-29)
+<a name="0.5.2"></a>
+## [0.5.2](https://github.com/Pearson-Higher-Ed/modal/compare/v0.5.0...v0.5.2) (2017-06-29)
 
 
 ### Bug Fixes
