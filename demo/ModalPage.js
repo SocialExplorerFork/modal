@@ -109,6 +109,7 @@ class ModalPage extends Component {
               <li>cancelBtnHandler:Function === () => console.log("cancel") function to handle closing modal should set of modalIsOpen to false</li>
               <li>shouldCloseOnOverlayClick:Boolean === true/false, defaults to True (allow clicking on overlay to close modal)</li>
               <li>hideCloseButton:Boolean === true/false, defaults to False (hide close button)</li>
+              <li>srHeaderText:String(Required) === Basic text to be read by screen reader when no header is present)</li>
             </ul>
           </div>
           <div className="code">
