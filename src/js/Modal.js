@@ -36,7 +36,7 @@ class Modal extends Component {
 
   render() {
 
-    const { isShown, footerVisible, text, children, disableSuccessBtn, shouldCloseOnOverlayClick, hideCloseButton } = this.props;
+    const { isShown, footerVisible, text, children, disableSuccessBtn, shouldCloseOnOverlayClick, hideCloseButton, srHeaderText } = this.props;
 
     return (
           <BaseModal
@@ -50,7 +50,7 @@ class Modal extends Component {
             contentLabel     = "Modal"
             shouldCloseOnOverlayClick = {shouldCloseOnOverlayClick}
             aria             = {{
-              labelledby  : "modalHeader",
+              labelledby  : "modalHeaderText",
               modal       : true
             }}
     	    >
@@ -61,7 +61,8 @@ class Modal extends Component {
               {!footerVisible && !hideCloseButton && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
                 <Icon name="remove-sm-24">{text.closeButtonSRText}</Icon>
               </button>}
-              {text.headerTitle && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
+              {text.headerTitle  && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
+              {!text.headerTitle && <span id="modalHeaderText" className="pe-sr-only">{srHeaderText}</span>}
             </div>
 
               <div className="modalBody" tabIndex={0}>
@@ -83,12 +84,13 @@ export default Modal;
 
 
 Modal.propTypes = {
+  text                      : PropTypes.object,
   successBtnHandler         : PropTypes.func,
   cancelBtnHandler          : PropTypes.func,
-  text                      : PropTypes.object,
   footerVisible             : PropTypes.bool,
   shouldCloseOnOverlayClick : PropTypes.bool,
-  hideCloseButton           : PropTypes.bool
+  hideCloseButton           : PropTypes.bool,
+  srHeaderText              : PropTypes.string
 };
 
 export function _onClose() {

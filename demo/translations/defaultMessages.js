@@ -43,5 +43,10 @@ export const messages = defineMessages({
     id             : 'closeButtonSRText',
     description    : 'close button text for screen reader',
     defaultMessage : 'close dialog'
+  },
+  srHeaderText : {
+    id             : 'srHeaderText',
+    description    : 'srHeaderText',
+    defaultMessage : 'Hi im a modal'
   }
 });
