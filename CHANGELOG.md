@@ -1,22 +1,42 @@
-<a name="0.5.1"></a>
-## [0.5.1](https://github.com/Pearson-Higher-Ed/modal/compare/v0.0.7...v0.5.1) (2017-06-28)
+<a name="0.4.2"></a>
+## [0.4.2](https://github.com/Pearson-Higher-Ed/modal/compare/v0.5.0...v0.4.2) (2017-06-29)
 
 
 ### Bug Fixes
 
 * .style to .style.paddingTop to get around browser quirk ([48cda74](https://github.com/Pearson-Higher-Ed/modal/commit/48cda74))
+* add srHeaderText prop to docs ([a753c1a](https://github.com/Pearson-Higher-Ed/modal/commit/a753c1a))
+* comma in translations ([4c242ff](https://github.com/Pearson-Higher-Ed/modal/commit/4c242ff))
 * fonts errors ([43e1868](https://github.com/Pearson-Higher-Ed/modal/commit/43e1868))
+
+
+
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/Pearson-Higher-Ed/modal/compare/v0.4.2...v0.5.0) (2017-06-27)
+
+
+### Bug Fixes
+
 * NVDA screen reader issues, disableHostCheck on webpack for VM issues ([29b5c10](https://github.com/Pearson-Higher-Ed/modal/commit/29b5c10))
-* remove aria disabled as per mallory ([74ed600](https://github.com/Pearson-Higher-Ed/modal/commit/74ed600))
-* remove build dir ([e64e0fb](https://github.com/Pearson-Higher-Ed/modal/commit/e64e0fb))
 * remove commented out line ([215d08d](https://github.com/Pearson-Higher-Ed/modal/commit/215d08d))
-* successbutton handler needed to remove wrapper, added disable functionality and aria to success button ([cae0e78](https://github.com/Pearson-Higher-Ed/modal/commit/cae0e78))
-* update button text to reflect purpose success/cancel. add descriptive body text ([c1413d8](https://github.com/Pearson-Higher-Ed/modal/commit/c1413d8))
 
 
 ### Features
 
 * static modal for interrupts ([a12be00](https://github.com/Pearson-Higher-Ed/modal/commit/a12be00))
+
+
+
+<a name="0.4.2"></a>
+## [0.4.2](https://github.com/Pearson-Higher-Ed/modal/compare/v0.0.7...v0.4.2) (2017-06-15)
+
+
+### Bug Fixes
+
+* remove aria disabled as per mallory ([74ed600](https://github.com/Pearson-Higher-Ed/modal/commit/74ed600))
+* remove build dir ([e64e0fb](https://github.com/Pearson-Higher-Ed/modal/commit/e64e0fb))
+* successbutton handler needed to remove wrapper, added disable functionality and aria to success button ([cae0e78](https://github.com/Pearson-Higher-Ed/modal/commit/cae0e78))
+* update button text to reflect purpose success/cancel. add descriptive body text ([c1413d8](https://github.com/Pearson-Higher-Ed/modal/commit/c1413d8))
 
 
 
