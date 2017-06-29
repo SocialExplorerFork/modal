@@ -6,5 +6,5 @@
 "modalCancelButtonText" : "Cancel Button",
 "headerTitle"           : "Basic Title",
 "closeButtonSRText"     : "close dialog",
-  "bodyText":"Pass in JSX elements as children to the modal, You must pass in the text object with valid strings"
+"bodyText"              : "Pass in JSX elements as children to the modal, You must pass in the text object with valid strings"
 }

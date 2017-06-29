@@ -97,6 +97,6 @@
   ],
   "dependencies": {
     "pearson-compounds": "^0.8.1",
-    "react-modal": "^1.7.7"
+    "react-modal": "^2.2.0"
   }
 }
