@@ -7,5 +7,5 @@
   "headerTitle"           : "French Basic Title",
   "closeButtonSRText"     : "french close dialog",
   "bodyText"              : "Pass in JSX elements as children to the modal, You must pass in the text object with valid strings",
-  "srHeaderText"          : "French Hi im a modal",
+  "srHeaderText"          : "French Hi im a modal"
 }

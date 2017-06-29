@@ -90,7 +90,7 @@ Modal.propTypes = {
   footerVisible             : PropTypes.bool,
   shouldCloseOnOverlayClick : PropTypes.bool,
   hideCloseButton           : PropTypes.bool,
-  srHeaderText              : PropTypes.string
+  srHeaderText              : PropTypes.string.isRequired
 };
 
 export function _onClose() {
