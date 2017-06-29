@@ -36,37 +36,40 @@ class Modal extends Component {
 
   render() {
 
-    const { isShown, footerVisible, text, children, disableSuccessBtn, shouldCloseOnOverlayClick, hideCloseButton } = this.props;
+    const { isShown, footerVisible, text, children, disableSuccessBtn, shouldCloseOnOverlayClick, hideCloseButton, srHeaderText } = this.props;
 
     return (
-        <BaseModal
-          className        = "pe-template__static-medium modalContent"
-          overlayClassName = "modalOverlay"
-          isOpen           = {isShown}
-          onAfterOpen      = {this.afterOpen}
-          onRequestClose   = {this.onClose}
-          ariaHideApp      = {false}
-          role             = "dialog"
-          contentLabel     = "Modal"
-          aria-labelledby  = "modalHeader"
-          aria-modal       = {true}
-          shouldCloseOnOverlayClick = {shouldCloseOnOverlayClick}
-  	      >
-      
+          <BaseModal
+            className        = "pe-template__static-medium modalContent"
+            overlayClassName = "modalOverlay"
+            isOpen           = {isShown}
+            onAfterOpen      = {this.afterOpen}
+            onRequestClose   = {this.onClose}
+            ariaHideApp      = {false}
+            role             = "dialog"
+            contentLabel     = "Modal"
+            shouldCloseOnOverlayClick = {shouldCloseOnOverlayClick}
+            aria             = {{
+              labelledby  : "modalHeaderText",
+              modal       : true
+            }}
+    	    >
+
           <div role="document">
 
-          <div id="modalHeader" className="modalHeader">
-            {!footerVisible && !hideCloseButton && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
-              <Icon name="remove-sm-24">{text.closeButtonSRText}</Icon>
-            </button>}
-            {text.headerTitle && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
-          </div>
-
-            <div className="modalBody" tabIndex={0}>
-              {children}
+            <div id="modalHeader" className="modalHeader">
+              {!footerVisible && !hideCloseButton && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
+                <Icon name="remove-sm-24">{text.closeButtonSRText}</Icon>
+              </button>}
+              {text.headerTitle  && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
+              {!text.headerTitle && <span id="modalHeaderText" className="pe-sr-only">{srHeaderText}</span>}
             </div>
 
-            {this.renderFooter(footerVisible, text, disableSuccessBtn)}
+              <div className="modalBody" tabIndex={0}>
+                {children}
+              </div>
+
+              {this.renderFooter(footerVisible, text, disableSuccessBtn)}
 
           </div>
         </BaseModal>
@@ -81,12 +84,13 @@ export default Modal;
 
 
 Modal.propTypes = {
+  text                      : PropTypes.object,
   successBtnHandler         : PropTypes.func,
   cancelBtnHandler          : PropTypes.func,
-  text                      : PropTypes.object,
   footerVisible             : PropTypes.bool,
   shouldCloseOnOverlayClick : PropTypes.bool,
-  hideCloseButton           : PropTypes.bool
+  hideCloseButton           : PropTypes.bool,
+  srHeaderText              : PropTypes.string.isRequired
 };
 
 export function _onClose() {
@@ -108,7 +112,7 @@ export function _cancelBtnHandler() {
 export function _removeOverlayStyle(){
   const modalBody    = document.getElementsByClassName('modalBody')[0];
   const modalOverlay = document.getElementsByClassName('modalOverlay')[0];
-  
+
   modalBody.style.maxHeight        = '';
   modalOverlay.style.paddingTop    = '';
   modalOverlay.style.paddingBottom = '';

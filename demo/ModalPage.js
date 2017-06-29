@@ -19,7 +19,7 @@ class ModalPage extends Component {
 
     this.firstButtonHandler  = _firstButtonHandler.bind(this);
     this.secondButtonHandler = _secondButtonHandler.bind(this);
-    this.thirdButtonHandler = _thirdButtonHandler.bind(this);
+    this.thirdButtonHandler  = _thirdButtonHandler.bind(this);
 
   }
 
@@ -42,7 +42,8 @@ class ModalPage extends Component {
       bodyText              : intl.formatMessage(messages.bodyText),
       closeButtonSRText     : intl.formatMessage(messages.closeButtonSRText),
       modalSaveButtonText   : intl.formatMessage(messages.modalSaveButtonText),
-      modalCancelButtonText : intl.formatMessage(messages.modalCancelButtonText)
+      modalCancelButtonText : intl.formatMessage(messages.modalCancelButtonText),
+      srHeaderText          : intl.formatMessage(messages.text.srHeaderText)
     };
 
 
@@ -54,16 +55,16 @@ class ModalPage extends Component {
           <br />
           <div className="elementContainer">
 
-            <ModalWithFooter id="modalWithFooter" isShown={firstModalIsShown} disableSuccessBtn={false} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => this.setState({firstModalIsShown:false})} >
+            <ModalWithFooter id="modalWithFooter" isShown={firstModalIsShown} disableSuccessBtn={false} text={text} srHeaderText={text.srHeaderText} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => this.setState({firstModalIsShown:false})} >
               <p>{text.bodyText}</p>
               <button onClick={() => this.setState({firstModalIsShown:false})}>Close Modal</button>
             </ModalWithFooter>
 
-            <ModalWithOutFooter id="modalWithOutFooter" isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => this.setState({secondModalIsShown:false})} >
+            <ModalWithOutFooter id="modalWithOutFooter" isShown={secondModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => this.setState({secondModalIsShown:false})} >
               <p>{text.bodyText}</p>
             </ModalWithOutFooter>
 
-            <ModalWithoutClose id="modalWithOutClose" isShown={thirdModalIsShown} text={text} footerVisible={false} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => this.setState({thirdModalIsShown:false})} >
+            <ModalWithoutClose id="modalWithOutClose" isShown={thirdModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={false} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => this.setState({thirdModalIsShown:false})} >
               <p>{text.bodyText}</p>
             </ModalWithoutClose>
             <Button
@@ -108,6 +109,7 @@ class ModalPage extends Component {
               <li>cancelBtnHandler:Function === () => console.log("cancel") function to handle closing modal should set of modalIsOpen to false</li>
               <li>shouldCloseOnOverlayClick:Boolean === true/false, defaults to True (allow clicking on overlay to close modal)</li>
               <li>hideCloseButton:Boolean === true/false, defaults to False (hide close button)</li>
+              <li>srHeaderText:String(Required) === Basic text to be read by screen reader when no header is present)</li>
             </ul>
           </div>
           <div className="code">
@@ -116,16 +118,16 @@ class ModalPage extends Component {
           </div>
           <br />
           <p className="code">{"import { Modal } from '@pearson-components/modal';"}</p>
-          <p className="code">{'<Modal isShown={firstModalIsShown} text={text} footerVisible={true} disableSuccessBtn={false} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></Modal>'}</p>
+          <p className="code">{'<Modal isShown={firstModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={true} disableSuccessBtn={false} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></Modal>'}</p>
           <br />
           <p>Modal also accepts children for addtional custom configureation:</p>
           <p className="code">{'<Modal isShown={true} text={text} footerVisible={true} successBtnHandler={() => console.log("Success!!")} ><p>hi there</p></Modal>'}</p>
           <p>Import Multiple Modals:</p>
           <p className="code">{"import { Modal as ModalWithFooter } from '@pearson-components/modal';"}</p>
           <p className="code">{"import { Modal as ModalWithOutFooter } from '@pearson-components/modal';"}</p>
-          <p className="code">{'<ModalWithFooter isShown={firstModalIsShown} disableSuccessBtn={false} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>'}</p>
-          <p className="code">{'<ModalWithOutFooter isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>'}</p>
-          <p className="code">{'<modalWithOutClose isShown={thirdModalIsShown} text={text} footerVisible={false} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithoutClose>'}</p>
+          <p className="code">{'<ModalWithFooter isShown={firstModalIsShown} disableSuccessBtn={false} text={text} srHeaderText={text.srHeaderText} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>'}</p>
+          <p className="code">{'<ModalWithOutFooter isShown={secondModalIsShown} text={text} footerVisible={false} srHeaderText={text.srHeaderText} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>'}</p>
+          <p className="code">{'<modalWithOutClose isShown={thirdModalIsShown} text={text} footerVisible={false} srHeaderText={text.srHeaderText} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithoutClose>'}</p>
         </div>
       )
     }
