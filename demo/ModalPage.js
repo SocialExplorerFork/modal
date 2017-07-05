@@ -43,7 +43,7 @@ class ModalPage extends Component {
       closeButtonSRText     : intl.formatMessage(messages.closeButtonSRText),
       modalSaveButtonText   : intl.formatMessage(messages.modalSaveButtonText),
       modalCancelButtonText : intl.formatMessage(messages.modalCancelButtonText),
-      srHeaderText          : intl.formatMessage(messages.text.srHeaderText)
+      srHeaderText          : intl.formatMessage(messages.srHeaderText)
     };
 
 
