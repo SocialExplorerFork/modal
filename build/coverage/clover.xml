@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1499287983488" clover="3.2.0">
+  <project timestamp="1499287983488" name="All files">
+    <metrics statements="7" coveredstatements="0" conditionals="54" coveredconditionals="0" methods="19" coveredmethods="0" elements="80" coveredelements="0" complexity="0" loc="7" ncloc="7" packages="1" files="1" classes="1">
+      <file name="Modal.js" path="/Users/ulantja/Workspace/Modal/src/js/Modal.js">
+        <metrics statements="7" coveredstatements="0" conditionals="54" coveredconditionals="0" methods="19" coveredmethods="0"/>
+        <line num="1" count="0" type="cond" truecount="0" falsecount="8"/>
+        <line num="194" count="0" type="cond" truecount="0" falsecount="30"/>
+        <line num="195" count="0" type="stmt"/>
+        <line num="196" count="0" type="stmt"/>
+        <line num="197" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="199" count="0" type="stmt"/>
+        <line num="200" count="0" type="cond" truecount="0" falsecount="12"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>
