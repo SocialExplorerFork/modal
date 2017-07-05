@@ -96,6 +96,7 @@
     "pearson-components"
   ],
   "dependencies": {
+    "npm-scripts": "^1.4.0",
     "pearson-compounds": "^0.8.1",
     "react-modal": "^2.2.0"
   }
