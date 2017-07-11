@@ -1,4 +1,6 @@
-@import '../../node_modules/pearson-elements/scss/elements.scss';
+@import '../../node_modules/pearson-elements/scss/elements/color/variables';
+@import '../../node_modules/pearson-elements/scss/elements/responsive-utilities/variables';
+@import '../../node_modules/pearson-elements/scss/elements/responsive-utilities/functions';
 
   .ReactModal__Body--open {
     overflow : hidden;
@@ -37,13 +39,13 @@
         @media(min-width:pe-responsive-get-breakpoint-value($breakpoint, min)){
 
           .modalHeader{
-            padding          : 40px 40px 0px 40px;
+            padding : 40px 40px 0px 40px;
           }
 
           .modalHeaderText{
-            color         : $pe-color-charcoal;
-            font-size     : 24px;
-            line-height   : 28px;
+            color       : $pe-color-charcoal;
+            font-size   : 24px;
+            line-height : 28px;
           }
 
           .modalBody{
