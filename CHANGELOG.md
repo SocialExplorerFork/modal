@@ -1,12 +1,25 @@
-<a name="0.5.2"></a>
-## [0.5.2](https://github.com/Pearson-Higher-Ed/modal/compare/v0.5.0...v0.5.2) (2017-06-29)
+<a name="0.5.3"></a>
+## [0.5.3](https://github.com/Pearson-Higher-Ed/modal/compare/v0.5.1...v0.5.3) (2017-07-13)
+
+
+### Bug Fixes
+
+* add more styles from elements ([3d93403](https://github.com/Pearson-Higher-Ed/modal/commit/3d93403))
+* add more styles from elements ([d264d26](https://github.com/Pearson-Higher-Ed/modal/commit/d264d26))
+* add srHeaderText prop to docs ([a753c1a](https://github.com/Pearson-Higher-Ed/modal/commit/a753c1a))
+* comma in translations ([4c242ff](https://github.com/Pearson-Higher-Ed/modal/commit/4c242ff))
+* remove duplicate elements styles ([9629e5e](https://github.com/Pearson-Higher-Ed/modal/commit/9629e5e))
+* remove duplicate elements styles ([aeecb10](https://github.com/Pearson-Higher-Ed/modal/commit/aeecb10))
+
+
+
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/Pearson-Higher-Ed/modal/compare/v0.5.0...v0.5.1) (2017-06-28)
 
 
 ### Bug Fixes
 
 * .style to .style.paddingTop to get around browser quirk ([48cda74](https://github.com/Pearson-Higher-Ed/modal/commit/48cda74))
-* add srHeaderText prop to docs ([a753c1a](https://github.com/Pearson-Higher-Ed/modal/commit/a753c1a))
-* comma in translations ([4c242ff](https://github.com/Pearson-Higher-Ed/modal/commit/4c242ff))
 * fonts errors ([43e1868](https://github.com/Pearson-Higher-Ed/modal/commit/43e1868))
 
 
