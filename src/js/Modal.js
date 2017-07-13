@@ -55,15 +55,15 @@ class Modal extends Component {
             }}
     	    >
 
-          <div role="document">
+            <div role="document">
 
-            <div id="modalHeader" className="modalHeader">
-              {!footerVisible && !hideCloseButton && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
-                <Icon name="remove-sm-24">{text.closeButtonSRText}</Icon>
-              </button>}
-              {text.headerTitle  && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
-              {!text.headerTitle && <span id="modalHeaderText" className="pe-sr-only">{srHeaderText}</span>}
-            </div>
+              <div id="modalHeader" className="modalHeader">
+                {!footerVisible && !hideCloseButton && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
+                  <Icon name="remove-sm-24">{text.closeButtonSRText}</Icon>
+                </button>}
+                {text.headerTitle  && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
+                {!text.headerTitle && <span id="modalHeaderText" className="pe-sr-only">{srHeaderText}</span>}
+              </div>
 
               <div className="modalBody" tabIndex={0}>
                 {children}
@@ -71,8 +71,8 @@ class Modal extends Component {
 
               {this.renderFooter(footerVisible, text, disableSuccessBtn)}
 
-          </div>
-        </BaseModal>
+            </div>
+          </BaseModal>
     )
 
   };
@@ -84,13 +84,16 @@ export default Modal;
 
 
 Modal.propTypes = {
-  text                      : PropTypes.object,
+  text                      : PropTypes.object.isRequired,
+  srHeaderText              : PropTypes.string.isRequired,
   successBtnHandler         : PropTypes.func,
   cancelBtnHandler          : PropTypes.func,
   footerVisible             : PropTypes.bool,
   shouldCloseOnOverlayClick : PropTypes.bool,
   hideCloseButton           : PropTypes.bool,
-  srHeaderText              : PropTypes.string.isRequired
+  isShown                   : PropTypes.bool,
+  disableSuccessBtn         : PropTypes.bool,
+
 };
 
 export function _onClose() {
