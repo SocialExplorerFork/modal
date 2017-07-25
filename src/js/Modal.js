@@ -26,13 +26,11 @@ class Modal extends Component {
 
   };
 
-  shouldComponentUpdate(nextState, nextProps){
+  componentWillReceiveProps(nextProps){
     if (nextProps && !nextProps.isShown && this.props.isShown){
       this.cancelBtnHandler();
     }
-    return true;
   }
-
 
   render() {
 
