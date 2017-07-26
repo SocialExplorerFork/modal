@@ -180,6 +180,8 @@ export function _applyWrapper() {
 
 export function _removeWrapper() {
   const wrapper = document.getElementById('wrapper');
+  if (!wrapper) { return; }
+
   wrapper.setAttribute('aria-hidden', false);
 
   const excludedElement = document.getElementsByClassName('modalOverlay')[0].parentElement;
