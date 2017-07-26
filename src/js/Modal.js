@@ -180,7 +180,7 @@ export function _applyWrapper() {
 
 export function _removeWrapper() {
   const wrapper = document.getElementById('wrapper');
-  if (!wrapper) { return; }
+  if (!wrapper) return;
 
   wrapper.setAttribute('aria-hidden', false);
 
