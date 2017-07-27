@@ -28,7 +28,8 @@ class Modal extends Component {
 
   componentWillReceiveProps(nextProps){
     if (nextProps && !nextProps.isShown && this.props.isShown){
-      this.cancelBtnHandler();
+      this.removeOverlayStyle();
+      this.removeWrapper();
     }
   }
 
