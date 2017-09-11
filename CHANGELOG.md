@@ -1,5 +1,5 @@
-<a name="0.4.2"></a>
-## [0.4.2](https://github.com/Pearson-Higher-Ed/modal/compare/v0.5.7...v0.4.2) (2017-09-11)
+<a name="0.5.8"></a>
+## [0.5.8](https://github.com/Pearson-Higher-Ed/modal/compare/v0.5.7...v0.5.8) (2017-09-11)
 
 
 
