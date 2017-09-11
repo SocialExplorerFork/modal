@@ -3,7 +3,7 @@
   "version": "0.5.7",
   "description": "Modal",
   "author": "pearson design accelerator pearson-design-accelerator@pearson.com",
-  "license": "MIT",
+  "license": "PEARSON PROPRIETARY AND CONFIDENTIAL INFORMATION SUBJECT TO NDA",
   "homepage": "https://pearson-higher-ed.github.io/modal/",
   "main": "./build/dist.modal.js",
   "scripts": {
