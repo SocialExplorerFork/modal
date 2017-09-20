@@ -6,6 +6,7 @@ import { Button }           from 'pearson-compounds';
 import { Modal as ModalWithOutFooter } from '../index';
 import { Modal as ModalWithFooter }    from '../index';
 import { Modal as ModalWithoutClose }  from '../index';
+import { Modal as ModalWithAppWrapper }  from '../index';
 
 class ModalPage extends Component {
 
@@ -15,17 +16,20 @@ class ModalPage extends Component {
     this.state = {
       firstModalIsShown  : false,
       secondModalIsShown : false,
+      thirdModalIsShown  : false,
+      fourthModalIsShown : false
     };
 
     this.firstButtonHandler  = _firstButtonHandler.bind(this);
     this.secondButtonHandler = _secondButtonHandler.bind(this);
     this.thirdButtonHandler  = _thirdButtonHandler.bind(this);
+    this.fourthButtonHandler  = _fourthButtonHandler.bind(this);
 
   }
 
   render() {
 
-    const { firstModalIsShown, secondModalIsShown, thirdModalIsShown } = this.state;
+    const { firstModalIsShown, secondModalIsShown, thirdModalIsShown, fourthModalIsShown } = this.state;
 
     // ======================Internationalization Example=======================
     // intl prop is injected by the injectIntl() at the bottom of the page...
@@ -38,6 +42,7 @@ class ModalPage extends Component {
       initiatingButtonText  : intl.formatMessage(messages.initiatingButtonText),
       initiatingButtonText2 : intl.formatMessage(messages.initiatingButtonText2),
       initiatingButtonText3 : intl.formatMessage(messages.initiatingButtonText3),
+      initiatingButtonText4 : intl.formatMessage(messages.initiatingButtonText4),
       headerTitle           : intl.formatMessage(messages.headerTitle),
       bodyText              : intl.formatMessage(messages.bodyText),
       closeButtonSRText     : intl.formatMessage(messages.closeButtonSRText),
@@ -67,6 +72,10 @@ class ModalPage extends Component {
             <ModalWithoutClose id="modalWithOutClose" isShown={thirdModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={false} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => this.setState({thirdModalIsShown:false})} >
               <p>{text.bodyText}</p>
             </ModalWithoutClose>
+
+            <ModalWithAppWrapper id="ModalWithAppWrapper" isShown={fourthModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={true} cancelBtnHandler={() => this.setState({fourthModalIsShown: false})} successBtnHandler={() => this.setState({fourthModalIsShown:false})} ariaHideApp={true} appElement={document.getElementById('app')} >
+              <p>{text.bodyText}</p>
+            </ModalWithAppWrapper>
             <Button
               btnType="primary"
               btnSize="xlarge"
@@ -95,6 +104,17 @@ class ModalPage extends Component {
               onClick={this.thirdButtonHandler}
               >
               {text.initiatingButtonText3}
+            </Button>
+
+            <br />
+            <br />
+
+            <Button
+              btnType="cta"
+              btnSize="xlarge"
+              onClick={this.fourthButtonHandler}
+              >
+              {text.initiatingButtonText4}
             </Button>
           </div>
 
@@ -128,6 +148,7 @@ class ModalPage extends Component {
           <p className="code">{'<ModalWithFooter isShown={firstModalIsShown} disableSuccessBtn={false} text={text} srHeaderText={text.srHeaderText} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>'}</p>
           <p className="code">{'<ModalWithOutFooter isShown={secondModalIsShown} text={text} footerVisible={false} srHeaderText={text.srHeaderText} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>'}</p>
           <p className="code">{'<modalWithOutClose isShown={thirdModalIsShown} text={text} footerVisible={false} srHeaderText={text.srHeaderText} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithoutClose>'}</p>
+          <p className="code">{`<ModalWithAppWrapper isShown={thirdModalIsShown} text={text} footerVisible={false} srHeaderText={text.srHeaderText} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ariaHideApp={true} appElement={document.getElementById('app')}><p>{text.bodyText}</p></ModalWithAppWrapper>`}</p>
         </div>
       )
     }
@@ -148,6 +169,10 @@ function _secondButtonHandler (){
 
 function _thirdButtonHandler (){
   this.setState({thirdModalIsShown:true});
+}
+
+function _fourthButtonHandler (){
+  this.setState({fourthModalIsShown:true});
 }
 
 function _cancelBtnHandler (){
