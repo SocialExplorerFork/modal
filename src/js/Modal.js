@@ -36,7 +36,6 @@ class Modal extends Component {
   render() {
 
     const { isShown, footerVisible, text, children, disableSuccessBtn, shouldCloseOnOverlayClick, hideCloseButton, srHeaderText } = this.props;
-
     return (
           <BaseModal
             className        = "pe-template__static-medium modalContent"
@@ -44,10 +43,11 @@ class Modal extends Component {
             isOpen           = {isShown}
             onAfterOpen      = {this.afterOpen}
             onRequestClose   = {this.onClose}
-            ariaHideApp      = {false}
             role             = "dialog"
             contentLabel     = "Modal"
             shouldCloseOnOverlayClick = {shouldCloseOnOverlayClick}
+            appElement       = {this.props.appElement}
+            ariaHideApp      = {this.props.ariaHideApp}
             aria             = {{
               labelledby  : "modalHeaderText",
               modal       : true
@@ -92,7 +92,8 @@ Modal.propTypes = {
   hideCloseButton           : PropTypes.bool,
   isShown                   : PropTypes.bool,
   disableSuccessBtn         : PropTypes.bool,
-
+  ariaHideApp               : PropTypes.bool,
+  appElement                : PropTypes.instanceOf(Element)
 };
 
 export function _onClose() {
@@ -130,8 +131,10 @@ export function _afterOpen() {
   const header            = document.getElementsByClassName('modalHeader')[0];
   const footer            = document.getElementsByClassName('modalFooter')[0];
 
-  // apply accessibility wrapper...
-  this.applyWrapper();
+  // apply accessibility wrapper if no appElement is given
+  if (!this.props.appElement) {
+    this.applyWrapper();
+  }
 
   // apply Focus to close button on open...
   modalContent.focus();

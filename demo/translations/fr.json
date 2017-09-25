@@ -2,6 +2,7 @@
   "initiatingButtonText"  : "French Open Modal with Footer",
   "initiatingButtonText2" : "French Open Modal without Footer",
   "initiatingButtonText3" : "French Open Modal without close button",
+  "initiatingButtonText4" : "French Open Modal that wrapps app instead of creating wrapper div",
   "modalSaveButtonText"   : "le Success button",
   "modalCancelButtonText" : "le Cancel button",
   "headerTitle"           : "French Basic Title",
