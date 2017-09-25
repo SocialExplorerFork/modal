@@ -1,3 +1,13 @@
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/Pearson-Higher-Ed/modal/compare/v0.5.8...v0.6.0) (2017-09-25)
+
+
+### Features
+
+* allow passing ariaHideApp and appElement to set aria-role on specific element ([0d94bd8](https://github.com/Pearson-Higher-Ed/modal/commit/0d94bd8))
+
+
+
 <a name="0.5.8"></a>
 ## [0.5.8](https://github.com/Pearson-Higher-Ed/modal/compare/v0.5.7...v0.5.8) (2017-09-11)
 
