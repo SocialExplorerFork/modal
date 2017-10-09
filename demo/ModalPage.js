@@ -23,7 +23,7 @@ class ModalPage extends Component {
     this.firstButtonHandler  = _firstButtonHandler.bind(this);
     this.secondButtonHandler = _secondButtonHandler.bind(this);
     this.thirdButtonHandler  = _thirdButtonHandler.bind(this);
-    this.fourthButtonHandler  = _fourthButtonHandler.bind(this);
+    this.fourthButtonHandler = _fourthButtonHandler.bind(this);
 
   }
 
@@ -61,7 +61,7 @@ class ModalPage extends Component {
           <div className="elementContainer">
 
             <ModalWithFooter id="modalWithFooter" isShown={firstModalIsShown} disableSuccessBtn={false} text={text} srHeaderText={text.srHeaderText} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => this.setState({firstModalIsShown:false})} >
-              <p>{text.bodyText}</p>
+              <p>{text.bodyText}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quis voluptates suscipit quisquam alias a, qui, iusto eum non? Voluptatem excepturi deleniti illum, eaque rerum cum libero praesentium at natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita quia assumenda accusamus? Labore illo, sint dolores veritatis dolorem necessitatibus laudantium nobis minima sit quam, temporibus quos et ut maxime iusto! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil animi hic numquam incidunt obcaecati perspiciatis omnis rerum veniam illum a placeat minima impedit, ipsa, quod harum earum! Pariatur, labore, deserunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores officiis, optio nostrum aperiam quisquam laborum consequatur dicta omnis fugit repellendus mollitia sit deleniti natus nisi facere dolorem quas iste ex! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid non, unde labore dolore dolorum harum consequatur omnis, iusto itaque ratione quo nam molestiae. Similique iure assumenda minima unde, ex quidem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. A expedita doloremque illum eligendi architecto cum nisi, iusto magnam! Et, dignissimos! Non voluptatibus sapiente quod veritatis sed cum a. Laudantium, magnam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, nisi. Sint at nesciunt nobis, dolorem voluptatum ut corrupti iusto iste dolorum temporibus unde cupiditate aspernatur cumque dignissimos perspiciatis architecto optio! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit delectus molestias dolore, cum! Fugiat, illo, incidunt. Sint, culpa id? Laboriosam illo, quia atque pariatur dolores, similique deserunt iure expedita quidem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum facilis voluptatum debitis. Aliquid nihil minus ullam amet asperiores aspernatur, ut impedit similique et vitae soluta nesciunt animi blanditiis, eligendi commodi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. A porro recusandae cum, explicabo reprehenderit dignissimos blanditiis dolores voluptatum minima repellendus ducimus architecto atque magnam laborum, impedit eaque, dolore deserunt. Accusantium! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla blanditiis, architecto quidem perferendis fugiat reiciendis. Recusandae quia provident ducimus minima deserunt, nobis, tempore ullam cum adipisci hic sit debitis nihil?</p>
               <button onClick={() => this.setState({firstModalIsShown:false})}>Close Modal</button>
             </ModalWithFooter>
 
@@ -140,7 +140,7 @@ class ModalPage extends Component {
           <p className="code">{"import { Modal } from '@pearson-components/modal';"}</p>
           <p className="code">{'<Modal isShown={firstModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={true} disableSuccessBtn={false} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></Modal>'}</p>
           <br />
-          <p>Modal also accepts children for addtional custom configureation:</p>
+          <p>Modal also accepts children for addtional custom configuration:</p>
           <p className="code">{'<Modal isShown={true} text={text} footerVisible={true} successBtnHandler={() => console.log("Success!!")} ><p>hi there</p></Modal>'}</p>
           <p>Import Multiple Modals:</p>
           <p className="code">{"import { Modal as ModalWithFooter } from '@pearson-components/modal';"}</p>

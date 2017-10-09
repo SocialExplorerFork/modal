@@ -35,7 +35,8 @@ class Modal extends Component {
 
   render() {
 
-    const { isShown, footerVisible, text, children, disableSuccessBtn, shouldCloseOnOverlayClick, hideCloseButton, srHeaderText } = this.props;
+    const { isShown, footerVisible, text, children, disableSuccessBtn,
+            shouldCloseOnOverlayClick, hideCloseButton, srHeaderText } = this.props;
     return (
           <BaseModal
             className        = "pe-template__static-medium modalContent"
@@ -57,9 +58,12 @@ class Modal extends Component {
             <div role="document">
 
               <div id="modalHeader" className="modalHeader">
-                {!footerVisible && !hideCloseButton && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
-                  <Icon name="remove-sm-24">{text.closeButtonSRText}</Icon>
-                </button>}
+                {!footerVisible && !hideCloseButton &&
+                  <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
+                    <Icon name="remove-sm-24">
+                      {text.closeButtonSRText}
+                    </Icon>
+                  </button> }
                 {text.headerTitle  && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
                 {!text.headerTitle && <span id="modalHeaderText" className="pe-sr-only">{srHeaderText}</span>}
               </div>
@@ -202,8 +206,8 @@ export function _renderFooter(footerVisible, text, disableSuccessBtn) {
   if (footerVisible) {
     return(
       <div className="modalFooter" >
-        <button onClick={this.cancelBtnHandler} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
         <button onClick={this.successBtnHandler} className="modalSave pe-btn__primary--btn_large" disabled={disableSuccessBtn}>{text.modalSaveButtonText}</button>
+        <button onClick={this.cancelBtnHandler} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
       </div>
     )
   };

@@ -31,7 +31,7 @@
   }
 
   .modalClose svg {
-    fill : $pe-color-charcoal;
+    fill : $pe-color-medium-gray;
   }
 
 
@@ -77,8 +77,13 @@
             padding : 0px 40px 40px 40px;
           }
 
-          .modalSave{
+          .modalSave,
+          .modalCancel {
             float   : right;
+          }
+
+          .modalCancel {
+            margin-right: 14px;
           }
 
           .modalClose{
@@ -135,8 +140,13 @@
             padding : 0px 40px 40px 40px;
           }
 
-          .modalSave{
+          .modalSave,
+          .modalCancel {
             float : right;
+          }
+
+          .modalCancel {
+            margin-right: 14px;
           }
 
           .modalClose{
