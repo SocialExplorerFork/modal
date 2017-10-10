@@ -6,7 +6,7 @@ import { Icon }                 from 'pearson-compounds';
 import '../scss/Modal.scss';
 
 
-class Modal extends Component {
+export default class Modal extends Component {
 
   static defaultProps = {
     shouldCloseOnOverlayClick: true
@@ -64,8 +64,14 @@ class Modal extends Component {
                       {text.closeButtonSRText}
                     </Icon>
                   </button> }
-                {text.headerTitle  && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
-                {!text.headerTitle && <span id="modalHeaderText" className="pe-sr-only">{srHeaderText}</span>}
+                {text.headerTitle  &&
+                  <h2 id="modalHeaderText" className="modalHeaderText pe-title">
+                    {text.headerTitle}
+                  </h2> }
+                {!text.headerTitle &&
+                  <span id="modalHeaderText" className="pe-sr-only">
+                    {srHeaderText}
+                  </span> }
               </div>
 
               <div className="modalBody" tabIndex={0}>
@@ -81,9 +87,6 @@ class Modal extends Component {
   };
 
 };
-
-
-export default Modal;
 
 
 Modal.propTypes = {
@@ -206,8 +209,8 @@ export function _renderFooter(footerVisible, text, disableSuccessBtn) {
   if (footerVisible) {
     return(
       <div className="modalFooter" >
-        <button onClick={this.successBtnHandler} className="modalSave pe-btn__primary--btn_large" disabled={disableSuccessBtn}>{text.modalSaveButtonText}</button>
         <button onClick={this.cancelBtnHandler} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
+        <button onClick={this.successBtnHandler} className="modalSave pe-btn__primary--btn_large" disabled={disableSuccessBtn}>{text.modalSaveButtonText}</button>
       </div>
     )
   };

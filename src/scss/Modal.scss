@@ -75,15 +75,11 @@
 
           .modalFooter {
             padding : 0px 40px 40px 40px;
+            text-align: right;
           }
 
-          .modalSave,
-          .modalCancel {
-            float   : right;
-          }
-
-          .modalCancel {
-            margin-right: 14px;
+          .modalSave {
+            margin-left: 14px;
           }
 
           .modalClose{
@@ -138,15 +134,11 @@
 
           .modalFooter {
             padding : 0px 40px 40px 40px;
+            text-align: right;
           }
 
-          .modalSave,
-          .modalCancel {
-            float : right;
-          }
-
-          .modalCancel {
-            margin-right: 14px;
+          .modalSave {
+            margin-left: 14px;
           }
 
           .modalClose{
@@ -234,6 +226,12 @@
 
           .modalHeader{
             padding          : 24px 24px 0px 24px;
+          }
+
+          .modalContent {
+            width: auto;
+            margin-left: 20px;
+            margin-right: 20px;
           }
 
           .modalHeaderText{
