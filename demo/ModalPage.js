@@ -23,7 +23,7 @@ class ModalPage extends Component {
     this.firstButtonHandler  = _firstButtonHandler.bind(this);
     this.secondButtonHandler = _secondButtonHandler.bind(this);
     this.thirdButtonHandler  = _thirdButtonHandler.bind(this);
-    this.fourthButtonHandler  = _fourthButtonHandler.bind(this);
+    this.fourthButtonHandler = _fourthButtonHandler.bind(this);
 
   }
 
@@ -140,7 +140,7 @@ class ModalPage extends Component {
           <p className="code">{"import { Modal } from '@pearson-components/modal';"}</p>
           <p className="code">{'<Modal isShown={firstModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={true} disableSuccessBtn={false} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></Modal>'}</p>
           <br />
-          <p>Modal also accepts children for addtional custom configureation:</p>
+          <p>Modal also accepts children for addtional custom configuration:</p>
           <p className="code">{'<Modal isShown={true} text={text} footerVisible={true} successBtnHandler={() => console.log("Success!!")} ><p>hi there</p></Modal>'}</p>
           <p>Import Multiple Modals:</p>
           <p className="code">{"import { Modal as ModalWithFooter } from '@pearson-components/modal';"}</p>

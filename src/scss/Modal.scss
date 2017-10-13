@@ -30,8 +30,8 @@
     margin : 0px;
   }
 
-  .modalClose svg {
-    fill : $pe-color-charcoal;
+  .modalClose {
+    color: $pe-color-medium-gray;
   }
 
 
@@ -75,15 +75,16 @@
 
           .modalFooter {
             padding : 0px 40px 40px 40px;
+            text-align: right;
           }
 
-          .modalSave{
-            float   : right;
+          .modalSave {
+            margin-left: 14px;
           }
 
           .modalClose{
-            width            : 40px;
-            height           : 40px;
+            width            : 44px;
+            height           : 44px;
             float            : right;
             margin           : -40px -40px 0px 0px;
             text-decoration  : none;
@@ -133,15 +134,16 @@
 
           .modalFooter {
             padding : 0px 40px 40px 40px;
+            text-align: right;
           }
 
-          .modalSave{
-            float : right;
+          .modalSave {
+            margin-left: 14px;
           }
 
           .modalClose{
-            width            : 40px;
-            height           : 40px;
+            width            : 44px;
+            height           : 44px;
             float            : right;
             margin           : -40px -40px 0px 0px;
             text-decoration  : none;
@@ -206,8 +208,8 @@
           }
 
           .modalClose{
-            width            : 40px;
-            height           : 40px;
+            width            : 44px;
+            height           : 44px;
             float            : right;
             margin           : -24px -24px 0px 0px;
             text-decoration  : none;
@@ -224,6 +226,11 @@
 
           .modalHeader{
             padding          : 24px 24px 0px 24px;
+          }
+
+          .modalContent {
+            width: auto;
+            margin: 0 20px;
           }
 
           .modalHeaderText{
@@ -271,8 +278,8 @@
           }
 
           .modalClose{
-            width            : 40px;
-            height           : 40px;
+            width            : 44px;
+            height           : 44px;
             float            : right;
             margin           : -24px -24px 0px 0px;
             text-decoration  : none;

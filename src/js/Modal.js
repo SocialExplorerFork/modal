@@ -6,7 +6,7 @@ import { Icon }                 from 'pearson-compounds';
 import '../scss/Modal.scss';
 
 
-class Modal extends Component {
+export default class Modal extends Component {
 
   static defaultProps = {
     shouldCloseOnOverlayClick: true
@@ -35,7 +35,8 @@ class Modal extends Component {
 
   render() {
 
-    const { isShown, footerVisible, text, children, disableSuccessBtn, shouldCloseOnOverlayClick, hideCloseButton, srHeaderText } = this.props;
+    const { isShown, footerVisible, text, children, disableSuccessBtn,
+            shouldCloseOnOverlayClick, hideCloseButton, srHeaderText } = this.props;
     return (
           <BaseModal
             className        = "pe-template__static-medium modalContent"
@@ -57,11 +58,20 @@ class Modal extends Component {
             <div role="document">
 
               <div id="modalHeader" className="modalHeader">
-                {!footerVisible && !hideCloseButton && <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
-                  <Icon name="remove-sm-24">{text.closeButtonSRText}</Icon>
-                </button>}
-                {text.headerTitle  && <h2 id="modalHeaderText" className="modalHeaderText pe-title">{text.headerTitle}</h2>}
-                {!text.headerTitle && <span id="modalHeaderText" className="pe-sr-only">{srHeaderText}</span>}
+                {!footerVisible && !hideCloseButton &&
+                  <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
+                    <Icon name="remove-sm-24">
+                      {text.closeButtonSRText}
+                    </Icon>
+                  </button> }
+                {text.headerTitle  &&
+                  <h2 id="modalHeaderText" className="modalHeaderText pe-title">
+                    {text.headerTitle}
+                  </h2> }
+                {!text.headerTitle &&
+                  <span id="modalHeaderText" className="pe-sr-only">
+                    {srHeaderText}
+                  </span> }
               </div>
 
               <div className="modalBody" tabIndex={0}>
@@ -77,9 +87,6 @@ class Modal extends Component {
   };
 
 };
-
-
-export default Modal;
 
 
 Modal.propTypes = {
