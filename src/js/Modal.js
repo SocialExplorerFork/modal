@@ -26,8 +26,8 @@ export default class Modal extends Component {
 
   };
 
-  componentWillReceiveProps(nextProps){
-    if (nextProps && !nextProps.isShown && this.props.isShown){
+  componentWillReceiveProps(nextProps) {
+    if (nextProps && !nextProps.isShown && this.props.isShown) {
       this.removeOverlayStyle();
       this.removeWrapper();
     }
@@ -119,7 +119,7 @@ export function _cancelBtnHandler() {
   this.props.cancelBtnHandler.call(this);
 }
 
-export function _removeOverlayStyle(){
+export function _removeOverlayStyle() {
   const modalBody    = document.getElementsByClassName('modalBody')[0];
   const modalOverlay = document.getElementsByClassName('modalOverlay')[0];
 
@@ -131,7 +131,6 @@ export function _removeOverlayStyle(){
 export function _afterOpen() {
 
   const headerCloseButton = document.getElementsByClassName('modalClose')[0];
-  const footerCloseButton = document.getElementsByClassName('modalCancel')[0];
   const modalBody         = document.getElementsByClassName('modalBody')[0];
   const modalContent      = document.getElementsByClassName('modalContent')[0];
   const modalOverlay      = document.getElementsByClassName('modalOverlay')[0];
