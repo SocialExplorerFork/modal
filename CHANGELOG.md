@@ -1,3 +1,13 @@
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/Pearson-Higher-Ed/modal/compare/v1.0.1...v1.0.2) (2017-11-13)
+
+
+### Features
+
+* Integrate Sonar ([67688d2](https://github.com/Pearson-Higher-Ed/modal/commit/67688d2))
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/Pearson-Higher-Ed/modal/compare/v0.6.0...v1.0.1) (2017-10-17)
 
