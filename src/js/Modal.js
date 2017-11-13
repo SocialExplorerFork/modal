@@ -8,10 +8,6 @@ import '../scss/Modal.scss';
 
 export default class Modal extends Component {
 
-  static defaultProps = {
-    shouldCloseOnOverlayClick: true
-  };
-
   constructor(props) {
     super(props);
 
@@ -36,7 +32,7 @@ export default class Modal extends Component {
   render() {
 
     const { isShown, footerVisible, text, children, disableSuccessBtn,
-            shouldCloseOnOverlayClick, hideCloseButton, srHeaderText } = this.props;
+            shouldCloseOnOverlayClick, hideCloseButton, srHeaderText, headerClass } = this.props;
     return (
           <BaseModal
             className        = "pe-template__static-medium modalContent"
@@ -50,28 +46,28 @@ export default class Modal extends Component {
             appElement       = {this.props.appElement}
             ariaHideApp      = {this.props.ariaHideApp}
             aria             = {{
-              labelledby  : "modalHeaderText",
+              labelledby  : 'modalHeaderText',
               modal       : true
             }}
     	    >
 
             <div role="document">
 
-              <div id="modalHeader" className="modalHeader">
+              <div id="modalHeader" className={`modalHeader ${headerClass}`}>
                 {!footerVisible && !hideCloseButton &&
                   <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
                     <Icon name="remove-sm-24">
                       {text.closeButtonSRText}
                     </Icon>
-                  </button> }
+                  </button>}
                 {text.headerTitle  &&
                   <h2 id="modalHeaderText" className="modalHeaderText pe-title">
                     {text.headerTitle}
-                  </h2> }
+                  </h2>}
                 {!text.headerTitle &&
                   <span id="modalHeaderText" className="pe-sr-only">
                     {srHeaderText}
-                  </span> }
+                  </span>}
               </div>
 
               <div className="modalBody" tabIndex={0}>
@@ -92,6 +88,7 @@ export default class Modal extends Component {
 Modal.propTypes = {
   text                      : PropTypes.object.isRequired,
   srHeaderText              : PropTypes.string.isRequired,
+  headerClass               : PropTypes.string,
   successBtnHandler         : PropTypes.func,
   cancelBtnHandler          : PropTypes.func,
   footerVisible             : PropTypes.bool,
@@ -102,6 +99,11 @@ Modal.propTypes = {
   ariaHideApp               : PropTypes.bool,
   appElement                : PropTypes.instanceOf(Element)
 };
+
+Modal.defaultProps = {
+  shouldCloseOnOverlayClick: true,
+  headerClass: ''
+}
 
 export function _onClose() {
   this.cancelBtnHandler();

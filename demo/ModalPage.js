@@ -120,7 +120,7 @@ class ModalPage extends Component {
 
           <div className="code">
             <h2>Props:</h2>
-            <ul>
+            <ul className="prop-list">
               <li>text:Object === 'initiatingButtonText', 'headerTitle', 'bodyText', 'closeButtonSRText', 'modalSaveButtonText', 'modalCancelButtonText'</li>
               <li>footerVisible:Boolean === true/false (close button and footer are mutually exclusive.)</li>
               <li>isShown:Boolean === true/false (opens the modal when true)</li>
@@ -130,6 +130,7 @@ class ModalPage extends Component {
               <li>shouldCloseOnOverlayClick:Boolean === true/false, defaults to True (allow clicking on overlay to close modal)</li>
               <li>hideCloseButton:Boolean === true/false, defaults to False (hide close button)</li>
               <li>srHeaderText:String(Required) === Basic text to be read by screen reader when no header is present)</li>
+              <li>headerClass:String === Allows the passing of additional class names to the Modal's header.</li>
             </ul>
           </div>
           <div className="code">
@@ -151,7 +152,7 @@ class ModalPage extends Component {
           <p className="code">{`<ModalWithAppWrapper isShown={thirdModalIsShown} text={text} footerVisible={false} srHeaderText={text.srHeaderText} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ariaHideApp={true} appElement={document.getElementById('app')}><p>{text.bodyText}</p></ModalWithAppWrapper>`}</p>
         </div>
       )
-    }
+  }
 
 }
 
@@ -159,26 +160,18 @@ class ModalPage extends Component {
 export default injectIntl(ModalPage);
 
 
-function _firstButtonHandler (){
+function _firstButtonHandler () {
   this.setState({firstModalIsShown:true});
 }
 
-function _secondButtonHandler (){
+function _secondButtonHandler () {
   this.setState({secondModalIsShown:true});
 }
 
-function _thirdButtonHandler (){
+function _thirdButtonHandler () {
   this.setState({thirdModalIsShown:true});
 }
 
-function _fourthButtonHandler (){
+function _fourthButtonHandler () {
   this.setState({fourthModalIsShown:true});
-}
-
-function _cancelBtnHandler (){
-  this.setState({modalIsOpen:false});
-}
-
-function _successBtnHandler() {
-  console.log("Success!!!");
 }
