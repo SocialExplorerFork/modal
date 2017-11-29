@@ -34,12 +34,7 @@ export default class Modal extends Component {
     const { isShown, footerVisible, text, children, disableSuccessBtn,
             shouldCloseOnOverlayClick, hideCloseButton, srHeaderText, headerClass,
             scrollWithPage } = this.props;
-    const scrollCheck = scrollWithPage ?
-      { overlay:
-        { overflowY: 'auto',
-          height: '86%'
-        }
-      } : {};
+    const scrollCheck = scrollWithPage ? { overlay: { overflowY: 'auto' } } : {};
 
     return (
           <BaseModal

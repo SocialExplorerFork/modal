@@ -7,6 +7,7 @@ import { Modal as ModalWithOutFooter } from '../index';
 import { Modal as ModalWithFooter }    from '../index';
 import { Modal as ModalWithoutClose }  from '../index';
 import { Modal as ModalWithAppWrapper }  from '../index';
+import { Modal as ModalScroll }  from '../index';
 
 class ModalPage extends Component {
 
@@ -17,19 +18,21 @@ class ModalPage extends Component {
       firstModalIsShown  : false,
       secondModalIsShown : false,
       thirdModalIsShown  : false,
-      fourthModalIsShown : false
+      fourthModalIsShown : false,
+      fifthModalIsShown : false
     };
 
     this.firstButtonHandler  = _firstButtonHandler.bind(this);
     this.secondButtonHandler = _secondButtonHandler.bind(this);
     this.thirdButtonHandler  = _thirdButtonHandler.bind(this);
     this.fourthButtonHandler = _fourthButtonHandler.bind(this);
+    this.fifthButtonHandler  = _fifthButtonHandler.bind(this);
 
   }
 
   render() {
 
-    const { firstModalIsShown, secondModalIsShown, thirdModalIsShown, fourthModalIsShown } = this.state;
+    const { firstModalIsShown, secondModalIsShown, thirdModalIsShown, fourthModalIsShown, fifthModalIsShown } = this.state;
 
     // ======================Internationalization Example=======================
     // intl prop is injected by the injectIntl() at the bottom of the page...
@@ -107,6 +110,35 @@ class ModalPage extends Component {
               ariaHideApp={true} appElement={document.getElementById('app')} >
               <p>{text.bodyText}</p>
             </ModalWithAppWrapper>
+
+            <ModalScroll
+              id="modalScroll"
+              scrollWithPage
+              isShown={fifthModalIsShown}
+              disableSuccessBtn={false}
+              text={text}
+              srHeaderText={text.srHeaderText}
+              footerVisible={true}
+              cancelBtnHandler={() => this.setState({fifthModalIsShown:false})}
+              successBtnHandler={() => this.setState({fifthModalIsShown:false})}>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+              </p>
+            </ModalScroll>
+
             <Button
               btnType="primary"
               btnSize="xlarge"
@@ -147,6 +179,17 @@ class ModalPage extends Component {
               >
               {text.initiatingButtonText4}
             </Button>
+
+            <br/>
+            <br/>
+
+            <Button
+              btnType="cta"
+              btnSize="xlarge"
+              onClick={this.fifthButtonHandler}
+              >
+              Modal that scrolls the page
+            </Button>
           </div>
 
           <div className="code">
@@ -174,7 +217,7 @@ class ModalPage extends Component {
           <p className="code">{"import { Modal } from '@pearson-components/modal';"}</p>
           <p className="code">{'<Modal isShown={firstModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={true} disableSuccessBtn={false} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></Modal>'}</p>
           <br />
-          <p>Modal also accepts children for addtional custom configuration:</p>
+          <p>Modal also accepts children for additional custom configuration:</p>
           <p className="code">{'<Modal isShown={true} text={text} footerVisible={true} successBtnHandler={() => console.log("Success!!")} ><p>hi there</p></Modal>'}</p>
           <p>Import Multiple Modals:</p>
           <p className="code">{"import { Modal as ModalWithFooter } from '@pearson-components/modal';"}</p>
@@ -207,4 +250,8 @@ function _thirdButtonHandler () {
 
 function _fourthButtonHandler () {
   this.setState({fourthModalIsShown:true});
+}
+
+function _fifthButtonHandler () {
+  this.setState({fifthModalIsShown:true});
 }
