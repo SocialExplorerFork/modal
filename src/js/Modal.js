@@ -32,7 +32,10 @@ export default class Modal extends Component {
   render() {
 
     const { isShown, footerVisible, text, children, disableSuccessBtn,
-            shouldCloseOnOverlayClick, hideCloseButton, srHeaderText, headerClass } = this.props;
+            shouldCloseOnOverlayClick, hideCloseButton, srHeaderText, headerClass,
+            scrollWithPage } = this.props;
+    const scrollCheck = scrollWithPage ? { overlay: { overflowY: 'auto' } } : {};
+
     return (
           <BaseModal
             className        = "pe-template__static-medium modalContent"
@@ -45,6 +48,7 @@ export default class Modal extends Component {
             shouldCloseOnOverlayClick = {shouldCloseOnOverlayClick}
             appElement       = {this.props.appElement}
             ariaHideApp      = {this.props.ariaHideApp}
+            style            = {scrollCheck}
             aria             = {{
               labelledby  : 'modalHeaderText',
               modal       : true
@@ -97,12 +101,14 @@ Modal.propTypes = {
   isShown                   : PropTypes.bool,
   disableSuccessBtn         : PropTypes.bool,
   ariaHideApp               : PropTypes.bool,
-  appElement                : PropTypes.instanceOf(Element)
+  appElement                : PropTypes.instanceOf(Element),
+  scrollWithPage            : PropTypes.bool
 };
 
 Modal.defaultProps = {
   shouldCloseOnOverlayClick: true,
-  headerClass: ''
+  headerClass: '',
+  scrollWithPage: false
 }
 
 export function _onClose() {
@@ -157,7 +163,7 @@ export function _afterOpen() {
 
   // modalBody.style.maxHeight        = !headerCloseButton ? `${windowHeight - (headerHeight + footerHeight + 120)}px` : '';
   // modalOverlay.style.overflow      = !headerCloseButton ? '' :'scroll';
-  modalBody.style.maxHeight        = `${windowHeight - (headerHeight + footerHeight + 120)}px`;
+  modalBody.style.maxHeight        = this.props.scrollWithPage ? 'none' : `${windowHeight - (headerHeight + footerHeight + 120)}px`;
   modalOverlay.style.paddingTop    = `${padding}px`;
   modalOverlay.style.paddingBottom = `${padding}px`;
 

@@ -7,6 +7,7 @@ import { Modal as ModalWithOutFooter } from '../index';
 import { Modal as ModalWithFooter }    from '../index';
 import { Modal as ModalWithoutClose }  from '../index';
 import { Modal as ModalWithAppWrapper }  from '../index';
+import { Modal as ModalScroll }  from '../index';
 
 class ModalPage extends Component {
 
@@ -17,19 +18,21 @@ class ModalPage extends Component {
       firstModalIsShown  : false,
       secondModalIsShown : false,
       thirdModalIsShown  : false,
-      fourthModalIsShown : false
+      fourthModalIsShown : false,
+      fifthModalIsShown : false
     };
 
     this.firstButtonHandler  = _firstButtonHandler.bind(this);
     this.secondButtonHandler = _secondButtonHandler.bind(this);
     this.thirdButtonHandler  = _thirdButtonHandler.bind(this);
     this.fourthButtonHandler = _fourthButtonHandler.bind(this);
+    this.fifthButtonHandler  = _fifthButtonHandler.bind(this);
 
   }
 
   render() {
 
-    const { firstModalIsShown, secondModalIsShown, thirdModalIsShown, fourthModalIsShown } = this.state;
+    const { firstModalIsShown, secondModalIsShown, thirdModalIsShown, fourthModalIsShown, fifthModalIsShown } = this.state;
 
     // ======================Internationalization Example=======================
     // intl prop is injected by the injectIntl() at the bottom of the page...
@@ -60,22 +63,82 @@ class ModalPage extends Component {
           <br />
           <div className="elementContainer">
 
-            <ModalWithFooter id="modalWithFooter" isShown={firstModalIsShown} disableSuccessBtn={false} text={text} srHeaderText={text.srHeaderText} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => this.setState({firstModalIsShown:false})} >
+            <ModalWithFooter
+              id="modalWithFooter"
+              isShown={firstModalIsShown}
+              disableSuccessBtn={false}
+              text={text}
+              srHeaderText={text.srHeaderText}
+              footerVisible={true}
+              cancelBtnHandler={() => this.setState({firstModalIsShown:false})}
+              successBtnHandler={() => this.setState({firstModalIsShown:false})}>
               <p>{text.bodyText}</p>
               <button onClick={() => this.setState({firstModalIsShown:false})}>Close Modal</button>
             </ModalWithFooter>
 
-            <ModalWithOutFooter id="modalWithOutFooter" isShown={secondModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => this.setState({secondModalIsShown:false})} >
+            <ModalWithOutFooter
+              id="modalWithOutFooter"
+              isShown={secondModalIsShown}
+              text={text}
+              srHeaderText={text.srHeaderText}
+              footerVisible={false}
+              cancelBtnHandler={() => this.setState({secondModalIsShown:false})}
+              successBtnHandler={() => this.setState({secondModalIsShown:false})}>
               <p>{text.bodyText}</p>
             </ModalWithOutFooter>
 
-            <ModalWithoutClose id="modalWithOutClose" isShown={thirdModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={false} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => this.setState({thirdModalIsShown:false})} >
+            <ModalWithoutClose
+              id="modalWithOutClose"
+              isShown={thirdModalIsShown}
+              text={text}
+              srHeaderText={text.srHeaderText}
+              footerVisible={false}
+              hideCloseButton={true}
+              cancelBtnHandler={() => this.setState({thirdModalIsShown:false})}
+              successBtnHandler={() => this.setState({thirdModalIsShown:false})}>
               <p>{text.bodyText}</p>
             </ModalWithoutClose>
 
-            <ModalWithAppWrapper id="ModalWithAppWrapper" isShown={fourthModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={true} cancelBtnHandler={() => this.setState({fourthModalIsShown: false})} successBtnHandler={() => this.setState({fourthModalIsShown:false})} ariaHideApp={true} appElement={document.getElementById('app')} >
+            <ModalWithAppWrapper
+              id="ModalWithAppWrapper"
+              isShown={fourthModalIsShown}
+              text={text}
+              srHeaderText={text.srHeaderText}
+              footerVisible={true}
+              cancelBtnHandler={() => this.setState({fourthModalIsShown: false})}
+              successBtnHandler={() => this.setState({fourthModalIsShown:false})}
+              ariaHideApp={true} appElement={document.getElementById('app')} >
               <p>{text.bodyText}</p>
             </ModalWithAppWrapper>
+
+            <ModalScroll
+              id="modalScroll"
+              scrollWithPage
+              isShown={fifthModalIsShown}
+              disableSuccessBtn={false}
+              text={text}
+              srHeaderText={text.srHeaderText}
+              footerVisible={true}
+              cancelBtnHandler={() => this.setState({fifthModalIsShown:false})}
+              successBtnHandler={() => this.setState({fifthModalIsShown:false})}>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+              </p>
+            </ModalScroll>
+
             <Button
               btnType="primary"
               btnSize="xlarge"
@@ -116,6 +179,17 @@ class ModalPage extends Component {
               >
               {text.initiatingButtonText4}
             </Button>
+
+            <br/>
+            <br/>
+
+            <Button
+              btnType="cta"
+              btnSize="xlarge"
+              onClick={this.fifthButtonHandler}
+              >
+              Modal that scrolls the page
+            </Button>
           </div>
 
           <div className="code">
@@ -126,11 +200,13 @@ class ModalPage extends Component {
               <li>isShown:Boolean === true/false (opens the modal when true)</li>
               <li>disableSuccessBtn:Boolean === true/false (disables the success button when footer is shown)</li>
               <li>successBtnHandler:Function === () => console.log("success")</li>
-              <li>cancelBtnHandler:Function === () => console.log("cancel") function to handle closing modal should set of modalIsOpen to false</li>
+              <li>cancelBtnHandler:Function === () => console.log("cancel") function to handle closing modal. Should set modalIsOpen to false</li>
               <li>shouldCloseOnOverlayClick:Boolean === true/false, defaults to True (allow clicking on overlay to close modal)</li>
               <li>hideCloseButton:Boolean === true/false, defaults to False (hide close button)</li>
               <li>srHeaderText:String(Required) === Basic text to be read by screen reader when no header is present)</li>
               <li>headerClass:String === Allows the passing of additional class names to the Modal's header.</li>
+              <li>scrollWithPage:Boolean</li>
+              <li>Allows the Modal to extend beyond the page with excess content.</li>
             </ul>
           </div>
           <div className="code">
@@ -141,7 +217,7 @@ class ModalPage extends Component {
           <p className="code">{"import { Modal } from '@pearson-components/modal';"}</p>
           <p className="code">{'<Modal isShown={firstModalIsShown} text={text} srHeaderText={text.srHeaderText} footerVisible={true} disableSuccessBtn={false} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></Modal>'}</p>
           <br />
-          <p>Modal also accepts children for addtional custom configuration:</p>
+          <p>Modal also accepts children for additional custom configuration:</p>
           <p className="code">{'<Modal isShown={true} text={text} footerVisible={true} successBtnHandler={() => console.log("Success!!")} ><p>hi there</p></Modal>'}</p>
           <p>Import Multiple Modals:</p>
           <p className="code">{"import { Modal as ModalWithFooter } from '@pearson-components/modal';"}</p>
@@ -174,4 +250,8 @@ function _thirdButtonHandler () {
 
 function _fourthButtonHandler () {
   this.setState({fourthModalIsShown:true});
+}
+
+function _fifthButtonHandler () {
+  this.setState({fifthModalIsShown:true});
 }
