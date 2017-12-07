@@ -98,6 +98,6 @@
   "dependencies": {
     "npm-scripts": "^1.4.0",
     "pearson-compounds": "0.14.x",
-    "react-modal": "3.1.7"
+    "react-modal": "^2.2.0"
   }
 }
