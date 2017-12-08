@@ -131,7 +131,6 @@ function _handleKeyDown(event) {
     const tabbableConfig = { context: '.modalContent' };
     const tabbableElements = ally.query.tabbable(tabbableConfig);
     tabbableElements[tabbableElements.length-1].focus();
-    console.log(tabbableElements[tabbableElements.length-1]);
   }
 
 }
