@@ -1,3 +1,15 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/Pearson-Higher-Ed/modal/compare/v1.1.0...v1.1.1) (2017-12-09)
+
+
+### Bug Fixes
+
+* A11y issues from react-modal ([4e9f1ee](https://github.com/Pearson-Higher-Ed/modal/commit/4e9f1ee))
+* a11y issues with modal ([d147ead](https://github.com/Pearson-Higher-Ed/modal/commit/d147ead))
+* remove unit test warnings ([1925ed3](https://github.com/Pearson-Higher-Ed/modal/commit/1925ed3))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/Pearson-Higher-Ed/modal/compare/v1.0.0...v1.1.0) (2017-11-30)
 
