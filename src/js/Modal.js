@@ -2,6 +2,7 @@ import React, { Component }     from 'react';
 import PropTypes                from 'prop-types';
 import { default as BaseModal } from 'react-modal';
 import { Icon }                 from 'pearson-compounds';
+import ally                     from 'ally.js';
 
 import '../scss/Modal.scss';
 
@@ -11,6 +12,11 @@ export default class Modal extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      shiftTab: false,
+      tab: false
+    };
+
     this.onClose            = _onClose.bind(this);
     this.renderFooter       = _renderFooter.bind(this);
     this.afterOpen          = _afterOpen.bind(this);
@@ -19,6 +25,7 @@ export default class Modal extends Component {
     this.successBtnHandler  = _successBtnHandler.bind(this);
     this.cancelBtnHandler   = _cancelBtnHandler.bind(this);
     this.removeOverlayStyle = _removeOverlayStyle.bind(this);
+    this.handleKeyDown      = _handleKeyDown.bind(this);
 
   };
 
@@ -111,8 +118,27 @@ Modal.defaultProps = {
   scrollWithPage: false
 }
 
+function _handleKeyDown(event) {
+
+  if (!event.shiftKey && event.which === 9 && !this.state.tab) {
+    this.state.tab = true;
+    return;
+  }
+
+  if (event.shiftKey && event.which === 9 && !this.state.shiftTab && !this.state.tab) {
+    event.preventDefault();
+    this.state.shiftTab = true;
+    const tabbableConfig = { context: '.modalContent' };
+    const tabbableElements = ally.query.tabbable(tabbableConfig);
+    tabbableElements[tabbableElements.length-1].focus();
+  }
+
+}
+
 export function _onClose() {
   this.cancelBtnHandler();
+  this.state.shiftTab = false;
+  this.state.tab = false;
 }
 
 export function _successBtnHandler() {
@@ -152,6 +178,7 @@ export function _afterOpen() {
 
   // apply Focus to close button on open...
   modalContent.focus();
+  modalContent.addEventListener('keydown', this.handleKeyDown);
 
   // apply padding based on clientHeight...
   const windowHeight  = window.innerHeight;
@@ -198,7 +225,7 @@ export function _applyWrapper() {
 
 export function _removeWrapper() {
   const wrapper = document.getElementById('wrapper');
-  if (!wrapper) return;
+  if (!wrapper) { return; }
 
   wrapper.setAttribute('aria-hidden', false);
 
