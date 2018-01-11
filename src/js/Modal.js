@@ -3,6 +3,7 @@ import PropTypes                from 'prop-types';
 import { default as BaseModal } from 'react-modal';
 import { Icon }                 from 'pearson-compounds';
 import ally                     from 'ally.js';
+import debounce                 from 'lodash.debounce';
 
 import '../scss/Modal.scss';
 
@@ -20,6 +21,7 @@ export default class Modal extends Component {
     this.onClose            = _onClose.bind(this);
     this.renderFooter       = _renderFooter.bind(this);
     this.afterOpen          = _afterOpen.bind(this);
+    this.setDimensions      = _setDimensions.bind(this);
     this.applyWrapper       = _applyWrapper.bind(this);
     this.removeWrapper      = _removeWrapper.bind(this);
     this.successBtnHandler  = _successBtnHandler.bind(this);
@@ -34,6 +36,10 @@ export default class Modal extends Component {
       this.removeOverlayStyle();
       this.removeWrapper();
     }
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.setDimensions);
   }
 
   render() {
@@ -116,7 +122,7 @@ Modal.defaultProps = {
   shouldCloseOnOverlayClick: true,
   headerClass: '',
   scrollWithPage: false
-}
+};
 
 function _handleKeyDown(event) {
 
@@ -139,6 +145,7 @@ export function _onClose() {
   this.cancelBtnHandler();
   this.state.shiftTab = false;
   this.state.tab = false;
+  window.removeEventListener("resize", this.setDimensions);
 }
 
 export function _successBtnHandler() {
@@ -163,23 +170,32 @@ export function _removeOverlayStyle() {
 }
 
 export function _afterOpen() {
-
-  const headerCloseButton = document.getElementsByClassName('modalClose')[0];
-  const modalBody         = document.getElementsByClassName('modalBody')[0];
-  const modalContent      = document.getElementsByClassName('modalContent')[0];
-  const modalOverlay      = document.getElementsByClassName('modalOverlay')[0];
-  const header            = document.getElementsByClassName('modalHeader')[0];
-  const footer            = document.getElementsByClassName('modalFooter')[0];
-
+  const modalContent = document.getElementsByClassName('modalContent')[0];
+  
   // apply accessibility wrapper if no appElement is given
   if (!this.props.appElement) {
     this.applyWrapper();
   }
-
+  
   // apply Focus to close button on open...
   modalContent.focus();
   modalContent.addEventListener('keydown', this.handleKeyDown);
+  window.addEventListener("resize", debounce(this.setDimensions, 100));
+  this.setDimensions();
+}
 
+export function _setDimensions() {
+  console.log('sizing...');
+  if (!this.props.isShown) {
+    return;
+  }
+  const modalBody = document.getElementsByClassName('modalBody')[0];
+  const headerCloseButton = document.getElementsByClassName('modalClose')[0];
+  const modalContent = document.getElementsByClassName('modalContent')[0];
+  const modalOverlay = document.getElementsByClassName('modalOverlay')[0];
+  const header = document.getElementsByClassName('modalHeader')[0];
+  const footer = document.getElementsByClassName('modalFooter')[0];
+  
   // apply padding based on clientHeight...
   const windowHeight  = window.innerHeight;
   const contentHeight = modalContent.offsetHeight;
@@ -188,20 +204,13 @@ export function _afterOpen() {
   const headerHeight  = header.getBoundingClientRect().height;
   const footerHeight  = footer ? footer.getBoundingClientRect().height : 0;
 
-  // modalBody.style.maxHeight        = !headerCloseButton ? `${windowHeight - (headerHeight + footerHeight + 120)}px` : '';
-  // modalOverlay.style.overflow      = !headerCloseButton ? '' :'scroll';
   modalBody.style.maxHeight        = this.props.scrollWithPage ? 'none' : `${windowHeight - (headerHeight + footerHeight + 120)}px`;
   modalOverlay.style.paddingTop    = `${padding}px`;
   modalOverlay.style.paddingBottom = `${padding}px`;
 
   // conditional borders on modalbody if scrollbar is present...
-  modalBody.className = (modalBody.offsetHeight < modalBody.scrollHeight && !headerCloseButton) ? 'modalBody modalBody_border' : 'modalBody modalBody_border_normal';
-
-  window.onresize = () => {
-    modalBody.className = (modalBody.offsetHeight < modalBody.scrollHeight && !headerCloseButton) ? 'modalBody modalBody_border' : 'modalBody modalBody_border_normal';
-  }
-
-};
+  modalBody.className = (contentHeight < modalBody.scrollHeight && !headerCloseButton) ? 'modalBody modalBody_border' : 'modalBody modalBody_border_normal';
+}
 
 export function _applyWrapper() {
 

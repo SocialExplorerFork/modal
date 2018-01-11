@@ -84,7 +84,11 @@ class ModalPage extends Component {
               footerVisible={false}
               cancelBtnHandler={() => this.setState({secondModalIsShown:false})}
               successBtnHandler={() => this.setState({secondModalIsShown:false})}>
-              <p>{text.bodyText}</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
+              </p>
             </ModalWithOutFooter>
 
             <ModalWithoutClose
