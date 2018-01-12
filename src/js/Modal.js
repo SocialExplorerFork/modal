@@ -3,7 +3,6 @@ import PropTypes                from 'prop-types';
 import { default as BaseModal } from 'react-modal';
 import { Icon }                 from 'pearson-compounds';
 import ally                     from 'ally.js';
-import debounce                 from 'lodash.debounce';
 
 import '../scss/Modal.scss';
 
@@ -27,7 +26,7 @@ export default class Modal extends Component {
   }
   
   componentWillUnmount() {
-    window.removeEventListener("resize", this.resizeModal);
+    window.removeEventListener("resize", this.setDimensions);
   }
   
   handleKeyDown = (event) => {
@@ -57,7 +56,7 @@ export default class Modal extends Component {
     modalContent.focus();
     modalContent.addEventListener('keydown', this.handleKeyDown);
     
-    window.addEventListener("resize", this.resizeModal);
+    window.addEventListener("resize", this.setDimensions);
     this.setDimensions();
   };
   
@@ -65,7 +64,7 @@ export default class Modal extends Component {
     this.cancelBtnHandler();
     this.state.shiftTab = false;
     this.state.tab = false;
-    window.removeEventListener("resize", this.resizeModal);
+    window.removeEventListener("resize", this.setDimensions);
   };
   
   successBtnHandler = () => {
@@ -88,10 +87,6 @@ export default class Modal extends Component {
     modalOverlay.style.paddingTop    = '';
     modalOverlay.style.paddingBottom = '';
   };
-  
-  resizeModal = debounce(() => {
-    this.setDimensions();
-  }, 100);
   
   setDimensions = () => {
     const modalBody = document.getElementsByClassName('modalBody')[0];
