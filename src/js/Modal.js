@@ -98,8 +98,7 @@ export default class Modal extends Component {
     
     // apply padding based on clientHeight...
     const windowHeight  = window.innerHeight;
-    const contentHeight = modalContent.offsetHeight;
-    const paddingHeight = (windowHeight - contentHeight) / 2;
+    const paddingHeight = (windowHeight - modalContent.offsetHeight) / 2;
     const headerHeight  = header.getBoundingClientRect().height;
     const footerHeight  = footer ? footer.getBoundingClientRect().height : 0;
     
@@ -107,7 +106,7 @@ export default class Modal extends Component {
     modalOverlay.style.paddingTop    = paddingHeight > 0 ? `${paddingHeight}px` : '2%';
     
     // conditional borders on modalbody if scrollbar is present...
-    modalBody.className = (contentHeight < modalBody.scrollHeight && !headerCloseButton) ? 'modalBody modalBody_border' : 'modalBody modalBody_border_normal';
+    modalBody.className = (modalBody.offsetHeight < modalBody.scrollHeight && !headerCloseButton) ? 'modalBody modalBody_border' : 'modalBody modalBody_border_normal';
   };
   
   applyWrapper = () => {
