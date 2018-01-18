@@ -1,3 +1,16 @@
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/Pearson-Higher-Ed/modal/compare/v1.1.1...v1.1.2) (2018-01-18)
+
+
+### Bug Fixes
+
+* downgraded version of webpack-dev-server to work in all browsers, including IE 11 ([5b5ba9c](https://github.com/Pearson-Higher-Ed/modal/commit/5b5ba9c))
+* removing debounce since it looks way cooler without ([83c3ded](https://github.com/Pearson-Higher-Ed/modal/commit/83c3ded))
+* scrolling content not showing top and bottom border ([7998165](https://github.com/Pearson-Higher-Ed/modal/commit/7998165))
+* update package-lock.json file to address security issue ([f3707db](https://github.com/Pearson-Higher-Ed/modal/commit/f3707db))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/Pearson-Higher-Ed/modal/compare/v1.1.0...v1.1.1) (2017-12-09)
 
