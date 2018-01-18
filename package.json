@@ -90,7 +90,7 @@
     "url-loader": "^0.5.7",
     "uuid": "2.0.2",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0"
+    "webpack-dev-server": "~2.9.0"
   },
   "keywords": [
     "pearson-components"
@@ -98,7 +98,7 @@
   "dependencies": {
     "ally.js": "^1.4.1",
     "npm-scripts": "^1.4.0",
-    "pearson-compounds": "0.14.x",
+    "pearson-compounds": "0.17.x",
     "react-modal": "3.1.7"
   }
 }
