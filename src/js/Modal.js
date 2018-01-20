@@ -104,7 +104,7 @@ export default class Modal extends Component {
     
     modalBody.style.maxHeight = (this.props.scrollWithPage || !this.props.footerVisible)
       ? 'none' : `${windowHeight - (headerHeight + footerHeight + 120)}px`;
-    modalOverlay.style.paddingTop    = paddingHeight > 0 ? `${paddingHeight}px` : '2%';
+    modalOverlay.style.paddingTop = paddingHeight > 20 ? `${paddingHeight}px` : '20px';
     // conditional borders on modalbody if scrollbar is present...
     modalBody.className = (modalBody.offsetHeight < modalBody.scrollHeight && !headerCloseButton) ? 'modalBody modalBody_border' : 'modalBody modalBody_border_normal';
   };
