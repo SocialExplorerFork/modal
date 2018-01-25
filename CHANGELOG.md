@@ -1,3 +1,13 @@
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/Pearson-Higher-Ed/modal/compare/v1.1.2...v1.1.3) (2018-01-25)
+
+
+### Bug Fixes
+
+* setting scrollWithPage to true if footerVisible is false ([403157c](https://github.com/Pearson-Higher-Ed/modal/commit/403157c))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/Pearson-Higher-Ed/modal/compare/v1.1.1...v1.1.2) (2018-01-18)
 
