@@ -102,9 +102,9 @@ export default class Modal extends Component {
     const headerHeight  = header.getBoundingClientRect().height;
     const footerHeight  = footer ? footer.getBoundingClientRect().height : 0;
     
-    modalBody.style.maxHeight        = this.props.scrollWithPage ? 'none' : `${windowHeight - (headerHeight + footerHeight + 120)}px`;
-    modalOverlay.style.paddingTop    = paddingHeight > 0 ? `${paddingHeight}px` : '2%';
-    
+    modalBody.style.maxHeight = (this.props.scrollWithPage || !this.props.footerVisible)
+      ? 'none' : `${windowHeight - (headerHeight + footerHeight + 120)}px`;
+    modalOverlay.style.paddingTop = paddingHeight > 20 ? `${paddingHeight}px` : '20px';
     // conditional borders on modalbody if scrollbar is present...
     modalBody.className = (modalBody.offsetHeight < modalBody.scrollHeight && !headerCloseButton) ? 'modalBody modalBody_border' : 'modalBody modalBody_border_normal';
   };
@@ -159,7 +159,7 @@ export default class Modal extends Component {
     const { isShown, footerVisible, text, children, disableSuccessBtn,
             shouldCloseOnOverlayClick, hideCloseButton, srHeaderText, headerClass,
             scrollWithPage } = this.props;
-    const scrollCheck = scrollWithPage ? { overlay: { overflowY: 'auto' } } : {};
+    const scrollCheck = (scrollWithPage || !footerVisible) ? { overlay: { overflowY: 'auto' } } : {};
 
     return (
           <BaseModal
