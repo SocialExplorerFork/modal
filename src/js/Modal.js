@@ -24,17 +24,17 @@ export default class Modal extends Component {
       this.removeWrapper();
     }
   }
-  
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.setDimensions);
   }
-  
+
   handleKeyDown = (event) => {
     if (!event.shiftKey && event.which === 9 && !this.state.tab) {
       this.state.tab = true;
       return;
     }
-    
+
     if (event.shiftKey && event.which === 9 && !this.state.shiftTab && !this.state.tab) {
       event.preventDefault();
       this.state.shiftTab = true;
@@ -43,51 +43,51 @@ export default class Modal extends Component {
       tabbableElements[tabbableElements.length-1].focus();
     }
   };
-  
+
   afterOpen = () => {
     const modalContent = document.getElementsByClassName('modalContent')[0];
-    
+
     // apply accessibility wrapper if no appElement is given
     if (!this.props.appElement) {
       this.applyWrapper();
     }
-    
+
     // apply Focus to close button on open...
     modalContent.focus();
     modalContent.addEventListener('keydown', this.handleKeyDown);
-    
+
     window.addEventListener("resize", this.setDimensions);
     this.setDimensions();
   };
-  
+
   onClose = () => {
     this.cancelBtnHandler();
     this.state.shiftTab = false;
     this.state.tab = false;
     window.removeEventListener("resize", this.setDimensions);
   };
-  
+
   successBtnHandler = () => {
     this.removeOverlayStyle();
     this.removeWrapper();
     this.props.successBtnHandler.call(this);
   };
-  
+
   cancelBtnHandler = () => {
     this.removeOverlayStyle();
     this.removeWrapper();
     this.props.cancelBtnHandler.call(this);
   };
-  
+
   removeOverlayStyle = () => {
     const modalBody    = document.getElementsByClassName('modalBody')[0];
     const modalOverlay = document.getElementsByClassName('modalOverlay')[0];
-    
+
     modalBody.style.maxHeight        = '';
     modalOverlay.style.paddingTop    = '';
     modalOverlay.style.paddingBottom = '';
   };
-  
+
   setDimensions = () => {
     const modalBody = document.getElementsByClassName('modalBody')[0];
     const headerCloseButton = document.getElementsByClassName('modalClose')[0];
@@ -95,66 +95,66 @@ export default class Modal extends Component {
     const modalOverlay = document.getElementsByClassName('modalOverlay')[0];
     const header = document.getElementsByClassName('modalHeader')[0];
     const footer = document.getElementsByClassName('modalFooter')[0];
-    
+
     // apply padding based on clientHeight...
     const windowHeight  = window.innerHeight;
     const paddingHeight = (windowHeight - modalContent.offsetHeight) / 2;
     const headerHeight  = header.getBoundingClientRect().height;
     const footerHeight  = footer ? footer.getBoundingClientRect().height : 0;
-    
+
     modalBody.style.maxHeight = (this.props.scrollWithPage || !this.props.footerVisible)
       ? 'none' : `${windowHeight - (headerHeight + footerHeight + 120)}px`;
     modalOverlay.style.paddingTop = paddingHeight > 20 ? `${paddingHeight}px` : '20px';
     // conditional borders on modalbody if scrollbar is present...
     modalBody.className = (modalBody.offsetHeight < modalBody.scrollHeight && !headerCloseButton) ? 'modalBody modalBody_border' : 'modalBody modalBody_border_normal';
   };
-  
+
   applyWrapper = () => {
     if (!document.getElementById('wrapper')) {
       const wrapper = document.createElement('div');
       wrapper.id    = 'wrapper';
       wrapper.setAttribute('aria-hidden', true);
-      
+
       const excludedElement = document.getElementsByClassName('modalOverlay')[0].parentElement;
-      
+
       while (document.body.firstChild) {
         wrapper.appendChild(document.body.firstChild);
       }
-      
+
       document.body.appendChild(wrapper);
       document.body.appendChild(excludedElement);
     }
   };
-  
+
   removeWrapper = () => {
     const wrapper = document.getElementById('wrapper');
     if (!wrapper) { return; }
-    
+
     wrapper.setAttribute('aria-hidden', false);
-    
+
     const excludedElement = document.getElementsByClassName('modalOverlay')[0].parentElement;
-    
+
     while (wrapper.firstChild) {
       document.body.appendChild(wrapper.firstChild);
     }
-    
+
     document.body.removeChild(wrapper);
     document.body.appendChild(excludedElement);
   };
-  
+
   renderFooter = (footerVisible, text, disableSuccessBtn) => {
     if (footerVisible) {
       return (
         <div className="modalFooter">
           <button onClick={this.cancelBtnHandler}
                   className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
-          <button onClick={this.successBtnHandler} className="modalSave pe-btn__primary--btn_large"
+          <button onClick={this.successBtnHandler} className=`modalSave pe-btn__primary--btn_large ${saveBtnClass}`
                   disabled={disableSuccessBtn}>{text.modalSaveButtonText}</button>
         </div>
       )
     }
   };
-  
+
   render() {
     const { isShown, footerVisible, text, children, disableSuccessBtn,
             shouldCloseOnOverlayClick, hideCloseButton, srHeaderText, headerClass,
@@ -227,7 +227,8 @@ Modal.propTypes = {
   disableSuccessBtn         : PropTypes.bool,
   ariaHideApp               : PropTypes.bool,
   appElement                : PropTypes.instanceOf(Element),
-  scrollWithPage            : PropTypes.bool
+  scrollWithPage            : PropTypes.bool,
+  saveBtnClass              : PropTypes.string
 };
 
 Modal.defaultProps = {
@@ -235,4 +236,3 @@ Modal.defaultProps = {
   headerClass: '',
   scrollWithPage: false
 };
-

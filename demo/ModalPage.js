@@ -51,7 +51,8 @@ class ModalPage extends Component {
       closeButtonSRText     : intl.formatMessage(messages.closeButtonSRText),
       modalSaveButtonText   : intl.formatMessage(messages.modalSaveButtonText),
       modalCancelButtonText : intl.formatMessage(messages.modalCancelButtonText),
-      srHeaderText          : intl.formatMessage(messages.srHeaderText)
+      srHeaderText          : intl.formatMessage(messages.srHeaderText),
+      saveBtnClass          : intl.formatMessage(messages.closeBtnClass)
     };
 
 
@@ -112,6 +113,7 @@ class ModalPage extends Component {
               cancelBtnHandler={() => this.setState({fourthModalIsShown: false})}
               successBtnHandler={() => this.setState({fourthModalIsShown:false})}
               ariaHideApp={true} appElement={document.getElementById('app')} >
+              saveBtnClass="save-button-styles"
               <p>{text.bodyText}</p>
             </ModalWithAppWrapper>
 
@@ -211,6 +213,7 @@ class ModalPage extends Component {
               <li>headerClass:String === Allows the passing of additional class names to the Modal's header.</li>
               <li>scrollWithPage:Boolean</li>
               <li>Allows the Modal to extend beyond the page with excess content.</li>
+              <li>saveBtnClass:String === Allows the passing of additional class to provide more customizable styling</li>
             </ul>
           </div>
           <div className="code">

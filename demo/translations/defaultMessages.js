@@ -53,5 +53,10 @@ export const messages = defineMessages({
     id             : 'srHeaderText',
     description    : 'srHeaderText',
     defaultMessage : 'Hi im a modal'
+  },
+  saveBtnClass : {
+    id             : 'saveBtnClass',
+    description    : 'saveBtnClass',
+    defaultMessage : 'save-button-styles'
   }
 });
