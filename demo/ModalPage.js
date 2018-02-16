@@ -19,7 +19,8 @@ class ModalPage extends Component {
       secondModalIsShown : false,
       thirdModalIsShown  : false,
       fourthModalIsShown : false,
-      fifthModalIsShown : false
+      fifthModalIsShown  : false,
+      sixthModalIsShown  : false
     };
 
     this.firstButtonHandler  = _firstButtonHandler.bind(this);
@@ -27,12 +28,13 @@ class ModalPage extends Component {
     this.thirdButtonHandler  = _thirdButtonHandler.bind(this);
     this.fourthButtonHandler = _fourthButtonHandler.bind(this);
     this.fifthButtonHandler  = _fifthButtonHandler.bind(this);
+    this.sixthButtonHandler  = _sixthButtonHandler.bind(this);
 
   }
 
   render() {
 
-    const { firstModalIsShown, secondModalIsShown, thirdModalIsShown, fourthModalIsShown, fifthModalIsShown } = this.state;
+    const { firstModalIsShown, secondModalIsShown, thirdModalIsShown, fourthModalIsShown, fifthModalIsShown, sixthModalIsShown } = this.state;
 
     // ======================Internationalization Example=======================
     // intl prop is injected by the injectIntl() at the bottom of the page...
@@ -46,13 +48,13 @@ class ModalPage extends Component {
       initiatingButtonText2 : intl.formatMessage(messages.initiatingButtonText2),
       initiatingButtonText3 : intl.formatMessage(messages.initiatingButtonText3),
       initiatingButtonText4 : intl.formatMessage(messages.initiatingButtonText4),
+      initiatingButtonText6 : intl.formatMessage(messages.initiatingButtonText6),
       headerTitle           : intl.formatMessage(messages.headerTitle),
       bodyText              : intl.formatMessage(messages.bodyText),
       closeButtonSRText     : intl.formatMessage(messages.closeButtonSRText),
       modalSaveButtonText   : intl.formatMessage(messages.modalSaveButtonText),
       modalCancelButtonText : intl.formatMessage(messages.modalCancelButtonText),
-      srHeaderText          : intl.formatMessage(messages.srHeaderText),
-      saveBtnClass          : intl.formatMessage(messages.closeBtnClass)
+      srHeaderText          : intl.formatMessage(messages.srHeaderText)
     };
 
 
@@ -113,7 +115,6 @@ class ModalPage extends Component {
               cancelBtnHandler={() => this.setState({fourthModalIsShown: false})}
               successBtnHandler={() => this.setState({fourthModalIsShown:false})}
               ariaHideApp={true} appElement={document.getElementById('app')} >
-              saveBtnClass="save-button-styles"
               <p>{text.bodyText}</p>
             </ModalWithAppWrapper>
 
@@ -144,6 +145,20 @@ class ModalPage extends Component {
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias reprehenderit illum, incidunt corrupti laborum. Qui necessitatibus quisquam incidunt. Quos, inventore ullam? Odio delectus eum, quisquam nisi dolor eveniet laboriosam ab?
               </p>
             </ModalScroll>
+
+            <ModalWithFooter
+              id="modalWithFooter"
+              isShown={sixthModalIsShown}
+              disableSuccessBtn={false}
+              text={text}
+              srHeaderText={text.srHeaderText}
+              footerVisible={true}
+              saveBtnId="save-button-styles"
+              cancelBtnHandler={() => this.setState({sixthModalIsShown:false})}
+              successBtnHandler={() => this.setState({sixthModalIsShown:false})}>
+              <p>{text.bodyText}</p>
+              <button onClick={() => this.setState({sixthModalIsShown:false})}>Close Modal</button>
+            </ModalWithFooter>
 
             <Button
               btnType="primary"
@@ -196,6 +211,17 @@ class ModalPage extends Component {
               >
               Modal that scrolls the page
             </Button>
+
+            <br/>
+            <br/>
+
+            <Button
+              btnType="cta"
+              btnSize="xlarge"
+              onClick={this.sixthButtonHandler}
+              >
+              {text.initiatingButtonText6}
+            </Button>
           </div>
 
           <div className="code">
@@ -213,7 +239,7 @@ class ModalPage extends Component {
               <li>headerClass:String === Allows the passing of additional class names to the Modal's header.</li>
               <li>scrollWithPage:Boolean</li>
               <li>Allows the Modal to extend beyond the page with excess content.</li>
-              <li>saveBtnClass:String === Allows the passing of additional class to provide more customizable styling</li>
+              <li>saveBtnId:String === Allows the passing of an id to provide more customizable styling</li>
             </ul>
           </div>
           <div className="code">
@@ -233,6 +259,7 @@ class ModalPage extends Component {
           <p className="code">{'<ModalWithOutFooter isShown={secondModalIsShown} text={text} footerVisible={false} srHeaderText={text.srHeaderText} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>'}</p>
           <p className="code">{'<modalWithOutClose isShown={thirdModalIsShown} text={text} footerVisible={false} srHeaderText={text.srHeaderText} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithoutClose>'}</p>
           <p className="code">{`<ModalWithAppWrapper isShown={thirdModalIsShown} text={text} footerVisible={false} srHeaderText={text.srHeaderText} hideCloseButton={true} cancelBtnHandler={() => this.setState({thirdModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ariaHideApp={true} appElement={document.getElementById('app')}><p>{text.bodyText}</p></ModalWithAppWrapper>`}</p>
+          <p className="code">{'<ModalWithFooter isShown={firstModalIsShown} disableSuccessBtn={false} text={text} srHeaderText={text.srHeaderText} footerVisible={true} saveBtnId="save-btn-styles" cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>'}</p>
         </div>
       )
   }
@@ -261,4 +288,8 @@ function _fourthButtonHandler () {
 
 function _fifthButtonHandler () {
   this.setState({fifthModalIsShown:true});
+}
+
+function _sixthButtonHandler () {
+  this.setState({sixthModalIsShown:true});
 }

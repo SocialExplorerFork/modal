@@ -1,4 +1,5 @@
 // SCSS for the demo page...
+
 %clearfix {
   content:"";
   display:table;
@@ -31,6 +32,6 @@
   list-style-type: none;
 }
 
-.save-button-styles {
-  .background-color: #ff0000;
+#save-button-styles {
+  background-color: #DB0020;
 }

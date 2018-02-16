@@ -24,6 +24,11 @@ export const messages = defineMessages({
     description    : 'text in initiating button',
     defaultMessage : 'Open Modal that wrapps app instead of creating wrapper div'
   },
+  initiatingButtonText6 : {
+    id             : 'initiatingButtonText6',
+    description    : 'text in initiating button',
+    defaultMessage : 'Open Modal with Footer with custom Success Button style'
+  },
   modalSaveButtonText : {
     id             : 'modalSaveButtonText',
     description    : 'text in save button',
@@ -53,10 +58,5 @@ export const messages = defineMessages({
     id             : 'srHeaderText',
     description    : 'srHeaderText',
     defaultMessage : 'Hi im a modal'
-  },
-  saveBtnClass : {
-    id             : 'saveBtnClass',
-    description    : 'saveBtnClass',
-    defaultMessage : 'save-button-styles'
   }
 });

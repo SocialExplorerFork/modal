@@ -142,13 +142,13 @@ export default class Modal extends Component {
     document.body.appendChild(excludedElement);
   };
 
-  renderFooter = (footerVisible, text, disableSuccessBtn) => {
+  renderFooter = (footerVisible, text, disableSuccessBtn, saveBtnId) => {
     if (footerVisible) {
       return (
         <div className="modalFooter">
           <button onClick={this.cancelBtnHandler}
                   className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
-          <button onClick={this.successBtnHandler} className=`modalSave pe-btn__primary--btn_large ${saveBtnClass}`
+          <button onClick={this.successBtnHandler} className='modalSave pe-btn__primary--btn_large' id={saveBtnId}
                   disabled={disableSuccessBtn}>{text.modalSaveButtonText}</button>
         </div>
       )
@@ -158,7 +158,7 @@ export default class Modal extends Component {
   render() {
     const { isShown, footerVisible, text, children, disableSuccessBtn,
             shouldCloseOnOverlayClick, hideCloseButton, srHeaderText, headerClass,
-            scrollWithPage } = this.props;
+            scrollWithPage, saveBtnId } = this.props;
     const scrollCheck = (scrollWithPage || !footerVisible) ? { overlay: { overflowY: 'auto' } } : {};
 
     return (
@@ -203,7 +203,7 @@ export default class Modal extends Component {
                 {children}
               </div>
 
-              {this.renderFooter(footerVisible, text, disableSuccessBtn)}
+              {this.renderFooter(footerVisible, text, disableSuccessBtn, saveBtnId)}
 
             </div>
           </BaseModal>
@@ -228,7 +228,7 @@ Modal.propTypes = {
   ariaHideApp               : PropTypes.bool,
   appElement                : PropTypes.instanceOf(Element),
   scrollWithPage            : PropTypes.bool,
-  saveBtnClass              : PropTypes.string
+  saveBtnId                 : PropTypes.string
 };
 
 Modal.defaultProps = {
