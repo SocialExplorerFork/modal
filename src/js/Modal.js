@@ -184,10 +184,9 @@ export default class Modal extends Component {
 
               <div id="modalHeader" className={`modalHeader ${headerClass}`}>
                 {!footerVisible && !hideCloseButton &&
-                  <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}>
-                    <Icon name="remove-sm-24">
-                      {text.closeButtonSRText}
-                    </Icon>
+                  <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}
+                          aria-label={text.closeButtonSRText}>
+                    <Icon name="remove-sm-24" />
                   </button>}
                 {text.headerTitle  &&
                   <h2 id="modalHeaderText" className="modalHeaderText pe-title">
