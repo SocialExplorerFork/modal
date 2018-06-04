@@ -1,5 +1,4 @@
-# Pearson Modal
-[![Build Status](https://travis-ci.org/Pearson-Higher-Ed/modal.svg?branch=master)](https://travis-ci.org/Pearson-Higher-Ed/modal)
+Fork of [Pearson Modal](https://github.com/Pearson-Higher-Ed/modal)
 
 This module provides an accessible text modal
 
