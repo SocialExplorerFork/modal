@@ -1,7 +1,6 @@
 import React, { Component }     from 'react';
 import PropTypes                from 'prop-types';
 import { default as BaseModal } from 'react-modal';
-import { Icon }                 from 'pearson-compounds';
 import ally                     from 'ally.js';
 
 import '../scss/Modal.scss';
@@ -26,7 +25,7 @@ export default class Modal extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.setDimensions);
+    window.removeEventListener('resize', this.setDimensions);
   }
 
   handleKeyDown = (event) => {
@@ -56,7 +55,7 @@ export default class Modal extends Component {
     modalContent.focus();
     modalContent.addEventListener('keydown', this.handleKeyDown);
 
-    window.addEventListener("resize", this.setDimensions);
+    window.addEventListener('resize', this.setDimensions);
     this.setDimensions();
   };
 
@@ -64,7 +63,7 @@ export default class Modal extends Component {
     this.cancelBtnHandler();
     this.state.shiftTab = false;
     this.state.tab = false;
-    window.removeEventListener("resize", this.setDimensions);
+    window.removeEventListener('resize', this.setDimensions);
   };
 
   successBtnHandler = () => {
@@ -148,7 +147,7 @@ export default class Modal extends Component {
         <div className="modalFooter">
           <button onClick={this.cancelBtnHandler}
                   className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
-          <button onClick={this.successBtnHandler} className='modalSave pe-btn__primary--btn_large' id={saveBtnId}
+          <button onClick={this.successBtnHandler} className="modalSave pe-btn__primary--btn_large" id={saveBtnId}
                   disabled={disableSuccessBtn}>{text.modalSaveButtonText}</button>
         </div>
       )
@@ -186,7 +185,6 @@ export default class Modal extends Component {
                 {!footerVisible && !hideCloseButton &&
                   <button className="modalClose pe-icon--btn" onClick={this.cancelBtnHandler}
                           aria-label={text.closeButtonSRText}>
-                    <Icon name="remove-sm-24" />
                   </button>}
                 {text.headerTitle  &&
                   <h2 id="modalHeaderText" className="modalHeaderText pe-title">
